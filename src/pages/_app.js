@@ -1,6 +1,7 @@
 import Head from "next/head";
 import "../styles/global.css";
 import { Poppins } from "next/font/google";
+import NavBar from "../components/NavBar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${poppins.variable} font-poppins`}>
+        <NavBar />
         <Component {...pageProps} />
       </main>
     </>
