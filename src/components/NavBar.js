@@ -36,6 +36,13 @@ export default function NavBar() {
         >
           Portfolio
         </MotionLink>
+        <MotionLink
+          href="media/Hani_Yousfi_Resume.pdf"
+          target="_blank"
+          className="px-5 mr-32"
+        >
+          Resume
+        </MotionLink>
       </nav>
       <div className="absolute left-0">
         <Logo />
