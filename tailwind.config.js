@@ -15,8 +15,12 @@ module.exports = {
         primary: "#B63E96", // 240,86,199
         primaryDark: "#58E6D9", // 80,230,217
         white: "#fff",
-        light_purple: "#8490ff"
+        light_purple: "#8490ff",
       },
+    },
+    borderWidth: {
+      1: "1px",
+      2: "2px",
     },
   },
   plugins: [],

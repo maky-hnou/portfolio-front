@@ -39,7 +39,11 @@ export default function NavBar() {
         <MotionLink
           href="media/Hani_Yousfi_Resume.pdf"
           target="_blank"
-          className="px-5 mr-32"
+          className="px-2 py-0.5 mr-32 ml-3 text-light_purple border-1 border-solid border-light_purple rounded-full"
+          whileHover={{
+            backgroundColor: "#8490ff",
+            color: "#fff",
+          }}
         >
           Resume
         </MotionLink>
