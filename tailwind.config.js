@@ -16,6 +16,7 @@ module.exports = {
         primaryDark: "#58E6D9", // 80,230,217
         white: "#fff",
         light_purple: "#8490ff",
+        light_white: "#f9f9ff",
       },
     },
     borderWidth: {
