@@ -17,6 +17,7 @@ module.exports = {
         white: "#fff",
         light_purple: "#8490ff",
         light_white: "#f9f9ff",
+        text_color: "#777777",
       },
     },
     borderWidth: {
