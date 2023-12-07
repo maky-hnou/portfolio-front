@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import profilepicture from "../../media/hani.jpg";
+import AnimatedText from "../components/AnimatedText";
 
 export default function Home() {
   return (
@@ -12,8 +13,11 @@ export default function Home() {
       <main className="w-full h-auto pl-28 pr-28 flex bg-light_white text-black">
         <div className="flex items-center justify-between w-full pt-20 pb-20">
           <div className="flex-1 pr-16">
-            <h5 className="text-base font-semibold">I am</h5>
-            <h3 className="mb-5 mt-3 text-3xl font-semibold">Hani Yousfi</h3>
+            <h5 className="text-xl font-semibold">I am</h5>
+            <AnimatedText
+              text="Hani Yousfi"
+              className="flex mb-5 mt-3 text-5xl font-semibold space-x-1"
+            />
             <p className="text-text_color mb-2">
               Dedicated contemplative coder and astute analyst, fueled by a
               passion for tackling intricate challenges.
