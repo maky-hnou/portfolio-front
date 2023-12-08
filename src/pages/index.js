@@ -28,6 +28,7 @@ export default function Home() {
             <AnimatedCharacters
               text="Passionate about unraveling the intricacies of Data, crafting
               Complex Adaptive Systems and the world of Cognitive Modeling."
+              reverse
               className="text-text_color mb-2 overflow-hidden flex"
             />
             <AnimatedCharacters

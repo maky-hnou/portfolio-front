@@ -1,7 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function AnimatedCharacters({ text, className = "" }) {
+export default function AnimatedCharacters({
+  text,
+  className = "",
+  reverse = false,
+}) {
   // splitting text into letters
   const letters = Array.from(text);
 
@@ -10,7 +14,11 @@ export default function AnimatedCharacters({ text, className = "" }) {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.03, delayChildren: 0.04 * i },
+      transition: {
+        staggerChildren: 0.02,
+        delayChildren: 0.03 * i,
+        staggerDirection: reverse ? -1 : 1, // Adjust staggerDirection based on reverse prop
+      },
     }),
   };
 
@@ -28,7 +36,7 @@ export default function AnimatedCharacters({ text, className = "" }) {
     },
     hidden: {
       opacity: 0,
-      x: -20,
+      x: reverse ? 20 : -20, // Adjust initial x position based on reverse prop
       y: 10,
       transition: {
         type: "spring",
