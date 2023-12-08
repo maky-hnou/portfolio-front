@@ -26,7 +26,7 @@ export default function Logo() {
     <div className="flex items-start justify-start">
       <MotionLink
         href="/"
-        className="w-max ml-8 px-2 flex text-light_purple items-start justify-start text-4xl font-medium"
+        className="w-max ml-10 px-2 flex text-light_purple items-start justify-start text-4xl font-medium"
         whileHover={{
           scale: 1.2,
         }}
