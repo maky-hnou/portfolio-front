@@ -17,7 +17,7 @@ export default function TextSpan({ children }) {
         "scale3d(1, 1, 1)",
       ],
       transition: {
-        times: [0, 0.5, 1],
+        times: [0, 0.8, 1],
         // duration: 1, // Set the duration in seconds (adjust as needed)
       },
     });
