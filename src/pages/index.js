@@ -4,6 +4,7 @@ import profilepicture from "../../media/hani.jpg";
 import AnimatedText from "../components/AnimatedText";
 import AnimatedCharacters from "../components/AnimatedCharacters";
 import TextSplitter from "../components/TextSplitter";
+import Link from "next/link";
 
 export default function Home() {
   const textAreaWidth = 800;
@@ -17,8 +18,8 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="w-full h-auto pl-14 pr-14 flex bg-light_white text-black">
-        <div className="flex items-center justify-between w-full pt-20 pb-20">
+      <main className="w-full h-auto p-14 bg-light_white text-black">
+        <div className="flex items-center justify-between w-full pb-20">
           <div className="flex-1 pr-14">
             <h5 className="text-xl font-semibold">I am</h5>
             <AnimatedText
@@ -42,6 +43,14 @@ export default function Home() {
               className="place-items-end float-right w-full h-full object-cover border-hidden rounded-full"
             />
           </div>
+        </div>
+        <div className="self-start">
+          <Link
+            className="border-none py-2.5 px-7 bg-gradient-to-r from-light_purple to-light_cyan text-white font-medium text-base uppercase"
+            href="portfolio"
+          >
+            My Projects
+          </Link>
         </div>
       </main>
     </div>
