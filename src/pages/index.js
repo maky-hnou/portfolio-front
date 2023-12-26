@@ -46,7 +46,7 @@ export default function Home() {
         </div>
         <div className="self-start">
           <Link
-            className="border-none py-2.5 px-7 bg-gradient-to-r from-light_purple to-light_cyan text-white font-medium text-base uppercase"
+            className="border-none py-2.5 px-7 bg-gradient-to-r from-light_purple to-light_cyan hover:shadow-[0_20px_20px_0px_rgba(132,144,255,0.3)] text-white font-medium text-base uppercase"
             href="portfolio"
           >
             My Projects
