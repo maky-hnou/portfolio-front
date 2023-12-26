@@ -53,6 +53,41 @@ export default function Home() {
           </Link>
         </div>
       </main>
+      <div className="p-14 bg-white">
+        <h1 className="pt-9 text-black font-semibold text-4xl uppercase">
+          Personal Details
+        </h1>
+        <div className="border-l-2 border-light_purple p-7 mb-5 text-base text-text_color font-light">
+          <p className="mb-4 box-sizing: border-box">
+            A few interesting things about me. I love to read Russian Literature
+            (my favorite is Fyodor Dostoevsky's Crime and Punishment). I also
+            like to play old strategic video games. Lastly, I love learning.
+            Every day, I try to learn or read about something new; whether that
+            would be related to my work scope or any other topic that I find
+            interesting.
+          </p>
+          <p className="mb-4 box-sizing: border-box">
+            I learned how to code by taking several courses (mainly online),
+            StackOverflow and of course Open Source projects. Each project I've
+            taken a look at or worked on taught me new skills.
+          </p>
+          <p className="mb-4 box-sizing: border-box">
+            Currently, I am occupying a Data Engineer post at Klarna. My work
+            mainly revolves around data modeling, designing and building data
+            pipelines and data warehousing. Thus making the data available and
+            accessible for the Data Scientists and Business Analysts.
+          </p>
+        </div>
+        <Link
+          className="border-none py-2.5 px-7 bg-gradient-to-r from-light_purple to-light_cyan hover:shadow-[0_20px_20px_0px_rgba(132,144,255,0.3)] text-white font-medium text-base uppercase"
+          href="about"
+        >
+          About Me
+        </Link>
+      </div>
+      <div>
+        <hr className="mb-20 mx-[10%] border-t-1"/>
+      </div>
     </div>
   );
 }
