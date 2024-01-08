@@ -5,6 +5,8 @@ import AnimatedText from "../components/AnimatedText";
 import AnimatedCharacters from "../components/AnimatedCharacters";
 import TextSplitter from "../components/TextSplitter";
 import Link from "next/link";
+import { DEIcon, SEIcon, AutIcon, AIIcon, DSIcon } from "../components/Icons";
+import SkillSet from "../components/SkillSet";
 
 export default function Home() {
   const textAreaWidth = 800;
@@ -12,6 +14,30 @@ export default function Home() {
     Passionate about unraveling the intricacies of Data, crafting Complex Adaptive Systems and the world of Cognitive Modeling.
     Thriving on the opportunities to apply solid analytical prowess and coding skills when facing convoluted problems.`;
   const lines = TextSplitter({ text: sampleText, maxWidth: textAreaWidth });
+  const Skills = [
+    "Linux",
+    "Python",
+    "Git",
+    "Jenkins",
+    "Docker",
+    "AWS",
+    "Apache Airflow",
+    "PostgreSQL",
+    "Redshift",
+    "NumPy",
+    "Pandas",
+    "Django",
+    "SQAlchemy",
+    "Pytest",
+    "Single Board Computers",
+    "Computer nVision",
+    "Machine Learning",
+    "Deep Learning",
+    "TensorFlow",
+    "Keras",
+    "OpenCV",
+    "C++",
+  ];
   return (
     <div>
       <Head>
@@ -86,7 +112,76 @@ export default function Home() {
         </Link>
       </div>
       <div>
-        <hr className="mb-20 mx-[10%] border-t-1"/>
+        <hr className="mb-20 mx-[10%] border-t-1" />
+      </div>
+      <div className="text-center">
+        <h1 className="mb-2.5 text-4xl font-semibold text-black">
+          Areas of Interest
+        </h1>
+        <p className="mt-0 mb-4 text-text_color text-base font-light">
+          Take a look at some of the things I love working on.
+        </p>
+      </div>
+      <div className="grid grid-cols-3 place-items-center">
+        <div className="text-center">
+          <DEIcon />
+          <h4>Data Engineering</h4>
+          <p>
+            I create data models, design & build ETL pipelines to route data
+            from multiple sources to a centralized Warehouse/Lakehouse.
+          </p>
+        </div>
+        <div className="text-center">
+          <SEIcon />
+          <h4>Software Enineering</h4>
+          <p>
+            I always try to build solid and efficient solutions, so I keep
+            learning about SWE concepts and apply them.
+          </p>
+        </div>
+        <div className="text-center">
+          <AutIcon />
+          <h4>Automation</h4>
+          <p>
+            I am always eager to build automated systems that minimize the human
+            intervention, thus improving the performance and reducing time and
+            cost.
+          </p>
+        </div>
+        <div className="text-center">
+          <AIIcon />
+          <h4>AI</h4>
+          <p>
+            I am more interested in the math and theory behind Machine Learning
+            and Deep Learning.
+          </p>
+        </div>
+        <div className="text-center">
+          <DSIcon />
+          <h4>Data Science</h4>
+          <p>
+            I am pationate about Data and what information we could get from it.
+            Processing and analyzing datasets is one of my favorite hobbies
+          </p>
+        </div>
+      </div>
+      <div>
+        <hr className="mb-20 mx-[10%] border-t-1" />
+      </div>
+      <div className="text-center">
+        <h1 className="mb-2.5 text-4xl font-semibold text-black">
+          Skills Expertise
+        </h1>
+        <p className="mt-0 mb-4 text-text_color text-base font-light">
+          Some of the skills I acquired.
+        </p>
+      </div>
+      <div className="px-4 text-text_color text-sm font-light">
+        <SkillSet
+          skillsList={Skills}
+          classNameUL="flex flex-wrap"
+          classNameLI="text-center bg-light_cyan p-2 flex-auto m-1 text-white text-lg rounded-lg font-normal"
+        />
       </div>
     </div>
   );
