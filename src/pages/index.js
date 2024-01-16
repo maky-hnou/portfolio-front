@@ -7,8 +7,11 @@ import TextSplitter from "../components/TextSplitter";
 import Link from "next/link";
 import { DEIcon, SEIcon, AutIcon, AIIcon, DSIcon } from "../components/Icons";
 import SkillSet from "../components/SkillSet";
+import ScreenDimensions from "../components/ScreenDimensions";
 
 export default function Home() {
+  const { width, height } = ScreenDimensions();
+  console.log("ss", width);
   const textAreaWidth = 800;
   const sampleText = `Dedicated contemplative coder and astute analyst, fueled by a passion for tackling intricate challenges.
     Passionate about unraveling the intricacies of Data, crafting Complex Adaptive Systems and the world of Cognitive Modeling.
