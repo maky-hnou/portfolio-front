@@ -11,8 +11,8 @@ import ScreenDimensions from "../components/ScreenDimensions";
 
 export default function Home() {
   const { width, height } = ScreenDimensions();
-  console.log("ss", width);
-  const textAreaWidth = 800;
+  const textAreaWidth = width - 300;
+  console.log(textAreaWidth);
   const sampleText = `Dedicated contemplative coder and astute analyst, fueled by a passion for tackling intricate challenges.
     Passionate about unraveling the intricacies of Data, crafting Complex Adaptive Systems and the world of Cognitive Modeling.
     Thriving on the opportunities to apply solid analytical prowess and coding skills when facing convoluted problems.`;
@@ -48,7 +48,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="w-full h-auto p-14 bg-light_white text-black">
-        <div className="flex items-center justify-between w-full pb-20">
+        <div className="flex items-center justify-between w-full">
           <div className="flex-1 pr-14">
             <h5 className="text-xl font-semibold">I am</h5>
             <AnimatedText
@@ -73,20 +73,12 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="self-start">
-          <Link
-            className="border-none py-2.5 px-7 bg-gradient-to-r from-light_purple to-light_cyan hover:shadow-[0_20px_20px_0px_rgba(132,144,255,0.3)] text-white font-medium text-base uppercase"
-            href="portfolio"
-          >
-            My Projects
-          </Link>
-        </div>
       </main>
       <div className="p-14 bg-white">
         <h1 className="pt-9 text-black font-semibold text-4xl uppercase">
           Personal Details
         </h1>
-        <div className="border-l-2 border-light_purple p-7 mb-5 text-base text-text_color font-light">
+        <div className="border-l-2 border-light_purple px-7 pt-7 mb-5 text-base text-text_color font-light">
           <p className="mb-4 box-sizing: border-box">
             A few interesting things about me. I love to read Russian Literature
             (my favorite is Fyodor Dostoevsky's Crime and Punishment). I also
@@ -107,12 +99,6 @@ export default function Home() {
             accessible for the Data Scientists and Business Analysts.
           </p>
         </div>
-        <Link
-          className="border-none py-2.5 px-7 bg-gradient-to-r from-light_purple to-light_cyan hover:shadow-[0_20px_20px_0px_rgba(132,144,255,0.3)] text-white font-medium text-base uppercase"
-          href="about"
-        >
-          About Me
-        </Link>
       </div>
       <div>
         <hr className="mb-20 mx-[10%] border-t-1" />
