@@ -5,7 +5,14 @@ import AnimatedText from "../components/AnimatedText";
 import AnimatedCharacters from "../components/AnimatedCharacters";
 import TextSplitter from "../components/TextSplitter";
 import Link from "next/link";
-import { DEIcon, SEIcon, AutIcon, AIIcon, DSIcon } from "../components/Icons";
+import {
+  DEIcon,
+  SEIcon,
+  AutIcon,
+  CVIcon,
+  AIIcon,
+  DSIcon,
+} from "../components/Icons";
 import SkillSet from "../components/SkillSet";
 import ScreenDimensions from "../components/ScreenDimensions";
 
@@ -112,46 +119,23 @@ export default function Home() {
         </p>
       </div>
       <div className="grid grid-cols-3 place-items-center">
-        <div className="text-center">
+        <div>
           <DEIcon />
-          <h4>Data Engineering</h4>
-          <p>
-            I create data models, design & build ETL pipelines to route data
-            from multiple sources to a centralized Warehouse/Lakehouse.
-          </p>
         </div>
-        <div className="text-center">
+        <div>
           <SEIcon />
-          <h4>Software Enineering</h4>
-          <p>
-            I always try to build solid and efficient solutions, so I keep
-            learning about SWE concepts and apply them.
-          </p>
         </div>
-        <div className="text-center">
+        <div>
           <AutIcon />
-          <h4>Automation</h4>
-          <p>
-            I am always eager to build automated systems that minimize the human
-            intervention, thus improving the performance and reducing time and
-            cost.
-          </p>
         </div>
-        <div className="text-center">
+        <div>
+          <CVIcon />
+        </div>
+        <div>
           <AIIcon />
-          <h4>AI</h4>
-          <p>
-            I am more interested in the math and theory behind Machine Learning
-            and Deep Learning.
-          </p>
         </div>
-        <div className="text-center">
+        <div>
           <DSIcon />
-          <h4>Data Science</h4>
-          <p>
-            I am pationate about Data and what information we could get from it.
-            Processing and analyzing datasets is one of my favorite hobbies
-          </p>
         </div>
       </div>
       <div>
