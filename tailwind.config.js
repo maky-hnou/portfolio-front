@@ -20,6 +20,12 @@ module.exports = {
         light_white: "#f9f9ff",
         text_color: "#777777",
       },
+      maxWidth: {
+        "1/4": "25%",
+        "1/2": "50%",
+        "3/4": "75%",
+        "4/12": "33.33333%"
+      }
     },
     borderWidth: {
       1: "1px",

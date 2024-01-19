@@ -118,24 +118,31 @@ export default function Home() {
           Take a look at some of the things I love working on.
         </p>
       </div>
-      <div className="grid grid-cols-3 place-items-center">
-        <div>
-          <DEIcon />
+      <div className="flex flex-wrap border-box mx-4 text-center">
+        <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
+          <DEIcon className="mx-auto"/>
+          <h4>Data Egnineering</h4>
         </div>
-        <div>
-          <SEIcon />
+
+        <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
+          <SEIcon className="mx-auto"/>
+          <h4>Software Engineering</h4>
         </div>
-        <div>
-          <AutIcon />
+        <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
+          <AutIcon className="mx-auto"/>
+          <h4>Automation</h4>
         </div>
-        <div>
-          <CVIcon />
+        <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
+          <CVIcon className="mx-auto"/>
+          <h4>Computer Vision</h4>
         </div>
-        <div>
-          <AIIcon />
+        <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
+          <AIIcon className="mx-auto"/>
+          <h4>Artificial Intelligence</h4>
         </div>
-        <div>
-          <DSIcon />
+        <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
+          <DSIcon className="mx-auto"/>
+          <h4>Data Science</h4>
         </div>
       </div>
       <div>
