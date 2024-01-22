@@ -121,7 +121,6 @@ export default function Home() {
       <div className="flex flex-wrap border-box mx-4 text-center my-14">
         <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
           <DEIcon className="mx-auto" />
-          <h4>Data Egnineering</h4>
           <p>
             I create data models, design & build ETL pipelines to route data
             from multiple sources to a centralized Warehouse/Lakehouse.
@@ -130,7 +129,6 @@ export default function Home() {
 
         <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
           <SEIcon className="mx-auto" />
-          <h4>Software Engineering</h4>
           <p>
             I always try to build solid and efficient solutions, so I keep
             learning about SWE concepts and apply them.
@@ -138,7 +136,6 @@ export default function Home() {
         </div>
         <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
           <AutIcon className="mx-auto" />
-          <h4>Automation</h4>
           <p>
             I am always eager to build automated systems that minimize the human
             intervention, thus improving the performance and reducing time and
@@ -147,7 +144,6 @@ export default function Home() {
         </div>
         <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
           <CVIcon className="mx-auto" />
-          <h4>Computer Vision</h4>
           <p>
             I design and develop computer vision modules and integrate them into
             the different projects I contribute to.
@@ -155,7 +151,6 @@ export default function Home() {
         </div>
         <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
           <AIIcon className="mx-auto" />
-          <h4>Artificial Intelligence</h4>
           <p>
             I am more interested in the math and theory behind Machine Learning
             and Deep Learning.
@@ -163,7 +158,6 @@ export default function Home() {
         </div>
         <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
           <DSIcon className="mx-auto" />
-          <h4>Data Science</h4>
           <p>
             I am pationate about Data and what information we could get from it.
             Processing and analyzing datasets is one of my favorite hobbies
