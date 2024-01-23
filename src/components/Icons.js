@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 export function DEIcon({ className, ...rest }) {
   return (
     <motion.div
+      className="mx-auto w-fit"
       whileHover={{
         fill: "#8490ff",
         color: "#8490ff",
@@ -32,6 +33,7 @@ export function DEIcon({ className, ...rest }) {
 export function SEIcon({ className, ...rest }) {
   return (
     <motion.div
+      className="mx-auto w-fit"
       whileHover={{
         fill: "#8490ff",
         color: "#8490ff",
@@ -57,6 +59,7 @@ export function SEIcon({ className, ...rest }) {
 export function AutIcon({ className, ...rest }) {
   return (
     <motion.div
+      className="mx-auto w-fit"
       whileHover={{
         fill: "#8490ff",
         color: "#8490ff",
@@ -90,6 +93,7 @@ export function AutIcon({ className, ...rest }) {
 export function CVIcon({ className, ...rest }) {
   return (
     <motion.div
+      className="mx-auto w-fit"
       whileHover={{
         fill: "#8490ff",
         color: "#8490ff",
@@ -122,6 +126,7 @@ export function CVIcon({ className, ...rest }) {
 export function AIIcon({ className, ...rest }) {
   return (
     <motion.div
+      className="mx-auto w-fit"
       whileHover={{
         fill: "#8490ff",
         color: "#8490ff",
@@ -149,6 +154,7 @@ export function AIIcon({ className, ...rest }) {
 export function DSIcon({ className, ...rest }) {
   return (
     <motion.div
+      className="mx-auto w-fit"
       whileHover={{
         fill: "#8490ff",
         color: "#8490ff",
