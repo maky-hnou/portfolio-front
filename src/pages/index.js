@@ -175,11 +175,11 @@ export default function Home() {
           Some of the skills I acquired.
         </p>
       </div>
-      <div className="px-4 text-text_color text-sm font-light">
+      <div className="px-4 mb-10 mx-auto">
         <SkillSet
           skillsList={Skills}
-          classNameUL="flex flex-wrap"
-          classNameLI="text-center bg-light_cyan p-2 flex-auto m-1 text-white text-lg rounded-lg font-normal"
+          classNameUL="flex flex-wrap list-none	p-0 m-0 text-lg font-normal"
+          classNameLI="text-center bg-light_purple p-2 flex-auto m-1 text-white text-xl rounded-lg font-medium font-montserrat"
         />
       </div>
     </div>

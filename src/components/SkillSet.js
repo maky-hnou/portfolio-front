@@ -9,17 +9,16 @@ export default function SkillSet({ skillsList, classNameUL, classNameLI }) {
         <motion.li
           className={`${classNameLI}`}
           key={index}
-          whileHover={{ scale: 1.2, opacity: 1 }}
           animate={controlsList[index]}
           initial={{ opacity: 1 }}
           onHoverStart={() => {
             // Scale up and fade in the hovered element
-            controlsList[index].start({ scale: 1.2, opacity: 1 });
+            controlsList[index].start({ scale: 1, opacity: 1 });
 
             // Scale down and fade out the other elements
             skillsList.forEach((_, i) => {
               if (i !== index) {
-                controlsList[i].start({ scale: 0.8, opacity: 0.5 });
+                controlsList[i].start({ scale: 0.9, opacity: 0.5 });
               }
             });
           }}
