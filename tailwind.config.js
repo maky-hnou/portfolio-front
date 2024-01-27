@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         poppins: ["var(--font-poppins)"],
+        montserrat: ["var(--font-montserrat)"],
       },
       colors: {
         dark: "#1b1b1b",
@@ -24,8 +25,8 @@ module.exports = {
         "1/4": "25%",
         "1/2": "50%",
         "3/4": "75%",
-        "4/12": "33.33333%"
-      }
+        "4/12": "33.33333%",
+      },
     },
     borderWidth: {
       1: "1px",

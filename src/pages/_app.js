@@ -2,6 +2,7 @@ import Head from "next/head";
 import "../styles/global.css";
 import { Poppins, Montserrat } from "next/font/google";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 
 const poppins = Poppins({
@@ -26,6 +27,7 @@ export default function App({ Component, pageProps }) {
       <main className={`${poppins.variable} font-poppins ${montserrat.variable} font-montserrat`}>
         <NavBar />
         <Component {...pageProps} />
+        <Footer />
       </main>
     </>
   );
