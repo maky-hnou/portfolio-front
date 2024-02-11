@@ -188,7 +188,7 @@ export function EmailIcon({ className, ...rest }) {
         color: "#8490ff",
       }}
       initial={{
-        fill: "currentColor",
+        fill: "#ffffff",
       }}
     >
       <svg
@@ -207,7 +207,6 @@ export function EmailIcon({ className, ...rest }) {
       >
         <path
           d="M43.3 53.07l246.72 0c13,0 23.64,10.64 23.64,23.65l0 2.83 -111.68 97.5c-10.17,8.88 -22.74,13.31 -35.33,13.31 -12.58,0 -25.16,-4.44 -35.33,-13.31l-111.68 -97.5 0 -2.83c0,-13.01 10.64,-23.65 23.64,-23.65zm270.37 46.3l0 157.25c0,13 -10.64,23.64 -23.64,23.64l-246.72 0c-13,0 -23.64,-10.64 -23.64,-23.64l0 -157.25 101.84 88.91c13.03,11.38 29.1,17.06 45.16,17.06 16.06,0 32.13,-5.69 45.16,-17.06l101.84 -88.91z"
-          className="fil0"
         />
       </svg>
     </motion.div>
@@ -223,7 +222,7 @@ export function GitHubIcon({ className, ...rest }) {
         color: "#8490ff",
       }}
       initial={{
-        fill: "currentColor",
+        fill: "#ffffff",
       }}
     >
       <svg
@@ -247,7 +246,7 @@ export function LinkedInIcon({ className, ...rest }) {
         color: "#8490ff",
       }}
       initial={{
-        fill: "currentColor",
+        fill: "#ffffff",
       }}
     >
       <svg

@@ -5,10 +5,12 @@ import { EmailIcon, GitHubIcon, LinkedInIcon } from "./Icons";
 export default function Footer() {
   return (
     <footer className="bg-black p-20 box-border">
-      <div className="max-w-[960px] w-full flex flex-wrap border-box mx-auto px-4 text-white text-base font-light">
+      <div className="max-w-[960px] w-full flex flex-wrap border-box mx-auto px-4 text-text_color text-base font-light">
         <div className="mx-auto">
-          <h4>About This page</h4>
-          <p>
+          <h4 className="mb-6 text-white text-lg font-medium">
+            About This Page
+          </h4>
+          <p className="mt-0 mb-4 border-box block">
             Inspired from{" "}
             <Link
               href="https://colorlib.com"
@@ -18,12 +20,12 @@ export default function Footer() {
               Colorlib
             </Link>
           </p>
-          <p>
+          <p className="mt-0 mb-4 border-box block">
             Copyright &copy; {new Date().getFullYear()} All rights reserved.
           </p>
         </div>
         <div className="mx-auto">
-          <h4>Contact</h4>
+          <h4 className="mb-6 text-white text-lg font-medium">Contact</h4>
           <div className="flex items-center content-center">
             <Link href="mailto:haniyousfi@gmail.com">
               <EmailIcon />
@@ -32,10 +34,22 @@ export default function Footer() {
           </div>
         </div>
         <div className="mx-auto">
-          <h4>Follow Me On</h4>
-          <div className="flex items-center content-center">
-            <LinkedInIcon />
-            <GitHubIcon />
+          <h4 className="mb-6 text-white text-lg font-medium">Follow Me On</h4>
+          <div className="flex items-center content-center -mt-3">
+            <Link
+              href="https://www.linkedin.com/in/hani-yousfi/"
+              target="_blank"
+              className="mx-auto"
+            >
+              <LinkedInIcon />
+            </Link>
+            <Link
+              href="https://github.com/maky-hnou"
+              target="_blank"
+              className="mx-auto"
+            >
+              <GitHubIcon />
+            </Link>
           </div>
         </div>
       </div>
