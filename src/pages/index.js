@@ -57,7 +57,7 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="w-full h-auto p-14 bg-light_white text-black">
+      <main className="w-full h-auto p-14 bg-light_white text-black pt-32">
         <div className="flex items-center justify-between w-full">
           <div className="flex-1 pr-14">
             <h5 className="text-xl font-semibold">I am</h5>
