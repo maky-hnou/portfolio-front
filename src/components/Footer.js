@@ -5,7 +5,7 @@ import { EmailIcon, GitHubIcon, LinkedInIcon } from "./Icons";
 export default function Footer() {
   return (
     <footer className="bg-black p-20 box-border">
-      <div className="max-w-[960px] w-full flex flex-wrap border-box mx-auto px-4 text-text_color text-base font-light">
+      <div className="max-w-[1440px] w-full flex flex-wrap border-box mx-auto px-4 text-text_color text-base font-light">
         <div className="mx-auto">
           <h4 className="mb-6 text-white text-lg font-medium">
             About This Page
