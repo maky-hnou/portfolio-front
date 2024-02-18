@@ -12,6 +12,8 @@ import {
   CVIcon,
   AIIcon,
   DSIcon,
+  GENAIIcon,
+  NLPIcon,
 } from "../components/Icons";
 import SkillSet from "../components/SkillSet";
 import ScreenDimensions from "../components/ScreenDimensions";
@@ -122,48 +124,62 @@ export default function Home() {
         </p>
       </div>
       <div className="flex flex-wrap border-box mx-4 text-center my-14">
-        <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
-          <DEIcon className="mx-auto" />
+        <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+          <DEIcon className="mx-auto"/>
           <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
             I create data models, design & build ETL pipelines to route data
             from multiple sources to a centralized Warehouse/Lakehouse.
           </p>
         </div>
 
-        <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
-          <SEIcon className="mx-auto" />
+        <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+          <SEIcon className="mx-auto"/>
           <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
             I always try to build solid and efficient solutions, so I keep
             learning about SWE concepts and apply them.
           </p>
         </div>
-        <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
-          <AutIcon className="mx-auto" />
+        <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+          <AutIcon className="mx-auto"/>
           <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
             I am always eager to build automated systems that minimize the human
             intervention, thus improving the performance and reducing time and
             cost.
           </p>
         </div>
-        <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
-          <CVIcon className="mx-auto" />
+        <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+          <CVIcon className="mx-auto"/>
           <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
             I design and develop computer vision modules and integrate them into
             the different projects I contribute to.
           </p>
         </div>
-        <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
-          <AIIcon className="mx-auto" />
+        <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+          <AIIcon className="mx-auto"/>
           <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
             I am more interested in the math and theory behind Machine Learning
             and Deep Learning.
           </p>
         </div>
-        <div className="grow-0 shrink-0 basis-4/12 max-w-4/12 px-4">
-          <DSIcon className="mx-auto" />
+        <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+          <DSIcon className="mx-auto"/>
           <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
             I am pationate about Data and what information we could get from it.
             Processing and analyzing datasets is one of my favorite hobbies
+          </p>
+        </div>
+        <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+          <GENAIIcon className="mx-auto"/>
+          <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
+            I design and develop computer vision modules and integrate them into
+            the different projects I contribute to.
+          </p>
+        </div>
+        <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+          <NLPIcon className="mx-auto"/>
+          <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
+            I design and develop computer vision modules and integrate them into
+            the different projects I contribute to.
           </p>
         </div>
       </div>
