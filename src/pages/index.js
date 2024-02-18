@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>H. YOUSFI</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="w-full h-auto p-14 bg-light_white text-black pt-32">
