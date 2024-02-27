@@ -4,7 +4,6 @@ import { Poppins, Montserrat } from "next/font/google";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
-
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
@@ -24,7 +23,9 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${poppins.variable} font-poppins ${montserrat.variable} font-montserrat`}>
+      <main
+        className={`${poppins.variable} font-poppins ${montserrat.variable} font-montserrat`}
+      >
         <NavBar />
         <Component {...pageProps} />
         <Footer />
