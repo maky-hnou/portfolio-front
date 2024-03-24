@@ -5,6 +5,7 @@ import AnimatedText from "../components/AnimatedText";
 import AnimatedCharacters from "../components/AnimatedCharacters";
 import TextSplitter from "../components/TextSplitter";
 import Link from "next/link";
+import TypeWriterAnimatedText from "../components/TypeWriterAnimation";
 import {
   DEIcon,
   SEIcon,
@@ -19,13 +20,9 @@ import SkillSet from "../components/SkillSet";
 import ScreenDimensions from "../components/ScreenDimensions";
 
 export default function Home() {
-  const { width, height } = ScreenDimensions();
-  const textAreaWidth = width - 300;
-  console.log(textAreaWidth);
   const sampleText = `Dedicated contemplative coder and astute analyst, fueled by a passion for tackling intricate challenges.
     Passionate about unraveling the intricacies of Data, crafting Complex Adaptive Systems and the world of Cognitive Modeling.
     Thriving on the opportunities to apply solid analytical prowess and coding skills when facing convoluted problems.`;
-  const lines = TextSplitter({ text: sampleText, maxWidth: textAreaWidth });
   const Skills = [
     "Linux",
     "Python",
@@ -57,7 +54,7 @@ export default function Home() {
     <div>
       <Head>
         <title>H. YOUSFI</title>
-        <link rel="icon" href="/favicon.ico" />
+        <Link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="w-full h-auto bg-light_white text-black pt-32">
         <div className="flex p-14 items-center justify-between w-full">
@@ -67,15 +64,11 @@ export default function Home() {
               text="Hani Yousfi"
               className="flex mb-5 mt-3 text-5xl font-semibold space-x-1"
             />
-
-            {lines.map((line, index) => (
-              <AnimatedCharacters
-                key={index}
-                text={line}
-                reverse={index % 2 === 1} // Reverse every other line
-                className="text-text_color mb-2 overflow-hidden flex"
-              />
-            ))}
+            <TypeWriterAnimatedText
+              text={sampleText}
+              className="text-text_color mb-2 overflow-hidden flex"
+              once={true}
+            />
           </div>
           <div className="w-80 h-80">
             <Image
