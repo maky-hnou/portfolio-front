@@ -24,7 +24,7 @@ export default function TypeWriterAnimatedText({
   const controls = useAnimation();
   const sentences = text.split("."); // Split text into sentences after every dot
   const ref = useRef(null);
-  const isInView = useInView(ref, { threshold: 0.5, triggerOnce: once });
+  const isInView = useInView(ref, { amount: 0.5, once: once });
 
   useEffect(() => {
     let timeout;
