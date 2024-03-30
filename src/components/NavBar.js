@@ -112,8 +112,8 @@ export default function NavBar() {
           </button>
         </div>
       )}
-      <div className="w-full flex justify-between items-center lg:hidden">
-        <nav className="absolute right-0 font-medium text-xs uppercase">
+      <div className="flex justify-between items-center lg:hidden">
+        <nav className="absolute right-0 font-medium text-xs uppercase xl:pr-8">
           <CustomLink href="/" title="Home" />
           <CustomLink href="/about" title="About" />
 
