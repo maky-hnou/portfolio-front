@@ -60,7 +60,7 @@ export default function TypeWriterAnimatedText({
         aria-hidden
       >
         {sentences.map((sentence, index) => (
-          <span className="block" key={`sentence-${index}`}>
+          <span className="block pb-2 lg:pb-4" key={`sentence-${index}`}>
             {sentence
               .trim()
               .split(" ")

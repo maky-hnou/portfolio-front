@@ -113,7 +113,7 @@ export default function NavBar() {
         </div>
       )}
       <div className="flex justify-between items-center lg:hidden">
-        <nav className="absolute right-0 font-medium text-xs uppercase xl:pr-8">
+        <nav className="absolute mr-32 right-0 font-medium text-xs uppercase xl:pr-8">
           <CustomLink href="/" title="Home" />
           <CustomLink href="/about" title="About" />
 
@@ -123,7 +123,7 @@ export default function NavBar() {
             href="media/Hani_Yousfi_Resume.pdf"
             title="Résumé"
             target="_blank"
-            className="py-0.5 mr-32 ml-3 text-light_purple border-1 border-solid border-light_purple rounded-full hover:bg-light_purple hover:text-white"
+            className="py-0.5 ml-3 text-light_purple border-1 border-solid border-light_purple rounded-full hover:bg-light_purple hover:text-white"
           />
         </nav>
       </div>

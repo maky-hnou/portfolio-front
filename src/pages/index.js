@@ -55,7 +55,7 @@ export default function Home() {
       </Head>
       <main className="w-full h-auto text-black pt-32">
         <div className="bg-light_white">
-          <div className="flex p-14 items-center justify-between w-full xl:max-w-6xl">
+          <div className="flex p-14 items-center justify-between w-full xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
             <div className="flex-1 pr-14">
               <h5 className="text-xl font-semibold">I am</h5>
               <AnimatedText
@@ -77,7 +77,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="p-14 bg-white xl:max-w-6xl">
+        <div className="p-14 bg-white xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
           <h1 className="pt-9 text-black font-semibold text-4xl uppercase">
             Personal Details
           </h1>
@@ -103,7 +103,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="p-14 bg-white xl:max-w-6xl">
+        <div className="p-14 bg-white xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
           <div>
             <hr className="mb-20 mx-[10%] border-t-1" />
           </div>
@@ -177,7 +177,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="p-14 bg-white xl:max-w-6xl">
+        <div className="p-14 bg-white xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
           <div>
             <hr className="mb-20 mx-[10%] border-t-1" />
           </div>
