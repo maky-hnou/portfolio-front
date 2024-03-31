@@ -113,7 +113,7 @@ export default function NavBar() {
         </div>
       )}
       <div className="flex justify-between items-center lg:hidden">
-        <nav className="absolute mr-32 right-0 font-medium text-xs uppercase xl:pr-8">
+        <nav className="absolute mr-32 right-0 font-medium text-xs uppercase">
           <CustomLink href="/" title="Home" />
           <CustomLink href="/about" title="About" />
 

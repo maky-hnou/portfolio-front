@@ -55,7 +55,7 @@ export default function Home() {
       </Head>
       <main className="w-full h-auto text-black pt-32">
         <div className="bg-light_white">
-          <div className="flex p-14 items-center justify-between w-full xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+          <div className="flex p-14 items-center justify-between w-full md:block">
             <div className="flex-1 pr-14">
               <h5 className="text-xl font-semibold">I am</h5>
               <AnimatedText
@@ -68,7 +68,7 @@ export default function Home() {
                 once={true}
               />
             </div>
-            <div className="w-80 h-80">
+            <div className="w-80 h-80 md:mx-auto">
               <Image
                 src={profilepicture}
                 alt="Hani"
@@ -77,7 +77,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="p-14 bg-white xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+        <div className="p-14 bg-white">
           <h1 className="pt-9 text-black font-semibold text-4xl uppercase">
             Personal Details
           </h1>
@@ -103,7 +103,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="p-14 bg-white xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+        <div className="p-14 bg-white">
           <div>
             <hr className="mb-20 mx-[10%] border-t-1" />
           </div>
@@ -116,7 +116,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-wrap border-box mx-4 text-center my-14">
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
               <DEIcon className="mx-auto" />
               <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
                 I create data models, design & build ETL pipelines to route data
@@ -124,14 +124,14 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
               <SEIcon className="mx-auto" />
               <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
                 I always try to build solid and efficient solutions, so I keep
                 learning about SWE concepts and apply them.
               </p>
             </div>
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
               <AutIcon className="mx-auto" />
               <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
                 I am always eager to build automated systems that minimize the
@@ -139,21 +139,21 @@ export default function Home() {
                 time and cost.
               </p>
             </div>
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
               <CVIcon className="mx-auto" />
               <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
                 I design and develop computer vision modules and integrate them
                 into the different projects I contribute to.
               </p>
             </div>
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
               <AIIcon className="mx-auto" />
               <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
                 I am more interested in the math and theory behind Machine
                 Learning and Deep Learning.
               </p>
             </div>
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
               <DSIcon className="mx-auto" />
               <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
                 I am pationate about Data and what information we could get from
@@ -161,14 +161,14 @@ export default function Home() {
                 hobbies
               </p>
             </div>
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/2 md:basis-1/2 sm:basis-full">
               <GENAIIcon className="mx-auto" />
               <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
                 I design and develop computer vision modules and integrate them
                 into the different projects I contribute to.
               </p>
             </div>
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4">
+            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/2 md:basis-1/2 sm:basis-full">
               <NLPIcon className="mx-auto" />
               <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
                 I design and develop computer vision modules and integrate them
@@ -177,7 +177,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="p-14 bg-white xl:max-w-[1140px] lg:max-w-[960px] md:max-w-[720px] sm:max-w-[540px]">
+        <div className="p-14 bg-white">
           <div>
             <hr className="mb-20 mx-[10%] border-t-1" />
           </div>
