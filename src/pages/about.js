@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import profilepicture from "../../media/hani.jpg";
-import Experience from "../components/experience";
+import Experience from "../components/Experience";
 
 export default function About() {
   return (
@@ -74,6 +74,9 @@ export default function About() {
             <div>
               <Experience />
             </div>
+          </div>
+          <div>
+            <hr className="mb-20 mx-[10%] border-t-1" />
           </div>
           // Put the next sections here
         </div>
