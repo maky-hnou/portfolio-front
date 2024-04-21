@@ -53,20 +53,6 @@ export default function Experience() {
   return (
     <ul className="m-0 p-0 list-none list-outside list-image-none box-border">
       <ExperienceItem
-        title="Preparatory Diploma for Engineering Studies"
-        institution="Faculty of Sciences of Monastir"
-        dateRange="September 2012 - June 2015"
-        position="odd:left-[50px]"
-        x_transition={50}
-      />
-      <ExperienceItem
-        title="Masters in Network Engineering"
-        institution="National School of Electronics and Telecommunications of Sfax"
-        dateRange="September 2015 - July 2018"
-        position="odd:-left-[405px]"
-        x_transition={-50}
-      />
-      <ExperienceItem
         title="Machine Learning Intern"
         institution="Novel-Ti"
         dateRange="February 2018 - July 2018"
@@ -100,6 +86,13 @@ export default function Experience() {
         dateRange="May 2023 - Present"
         position="odd:left-[50px]"
         x_transition={50}
+      />
+      <ExperienceItem
+        title="Senior Engineer"
+        institution="Klarna Bank AB"
+        dateRange="March 2024 - Present"
+        position="odd:-left-[405px]"
+        x_transition={-50}
       />
     </ul>
   );
