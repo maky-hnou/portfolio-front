@@ -10,19 +10,19 @@ export default function About() {
         <title>H. YOUSFI</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="w-full h-auto p-14 bg-white text-black pt-32">
+      <main className="w-full h-auto p-14 bg-white text-black pt-32 md:px-10">
         <div>
           <div className="py-12">
-            <div className="flex items-center justify-between w-full">
-              <div className="w-80 h-80 md:mx-auto">
+            <div className="flex items-center justify-between w-full md:block">
+              <div className="w-80 h-80">
                 <Image
                   src={profilepicture}
                   alt="Hani"
                   className="place-items-end float-right w-full h-full object-cover border-hidden rounded-full"
                 />
               </div>
-              <div className="grow-0 shrink-0 basis-5/12 px-4 box-border">
-                <h1 className="mb-10 uppercase text-4xl text-black font-semibold">
+              <div className="grow-0 shrink-0 basis-5/12 px-4 box-border lg:basis-1/2 md:pt-16">
+                <h1 className="mb-10 uppercase text-4xl text-black font-semibold md:mb-2">
                   PERSONAL DETAILS
                 </h1>
                 <p className="mb-8 max-w-[445px] mt-0 text-text_color text-base text-left font-light">
@@ -30,7 +30,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="pt-16 w-full relative px-4 box-border text-text_color text-base font-light">
+            <div className="pt-16 w-full relative px-4 box-border text-text_color text-base font-light md:pt-0">
               <p className="mt-0 mb-4 block">
                 I started as a Network Engineering Student. However, I was more
                 curious and eager to learn about Artificial Intelligence. So, I
