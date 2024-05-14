@@ -1,5 +1,5 @@
 import { motion, useInView, useAnimation } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function ExperienceItem({
   title,
@@ -48,6 +48,30 @@ export function ExperienceItem({
 }
 
 export default function Experience() {
+  const [windowWidth, setWindowWidth] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth;
+    } else {
+      return 0; // Default value if window is not defined
+    }
+  });
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setWindowWidth(window.innerWidth);
+  //   };
+
+  //   const resizeObserver = new ResizeObserver(handleResize);
+  //   resizeObserver.observe(document.documentElement);
+
+  //   return () => {
+  //     resizeObserver.unobserve(document.documentElement);
+  //   };
+  // }, []);
+
+  const xTransition = windowWidth > 670 ? -50 : 50;
+  console.log("xtrx:", xTransition);
+
   return (
     <ul className="m-0 p-0 list-none list-outside list-image-none box-border">
       <ExperienceItem
@@ -62,7 +86,7 @@ export default function Experience() {
         institution="Novel-Ti"
         dateRange="September 2018 - July 2021"
         position="odd:-left-[405px] lg:odd:-left-[365px] md:odd:-left-[270px] sm:odd:left-[20px]"
-        x_transition={-50}
+        x_transition={xTransition}
       />
       <ExperienceItem
         title="IT Consultant & Machine Learning Engineer"
@@ -76,7 +100,7 @@ export default function Experience() {
         institution="Klarna Bank AB"
         dateRange="May 2022 - May 2023"
         position="odd:-left-[405px] lg:odd:-left-[365px] md:odd:-left-[270px] sm:odd:left-[20px]"
-        x_transition={-50}
+        x_transition={xTransition}
       />
       <ExperienceItem
         title="Sfotware Engineer"
@@ -90,7 +114,7 @@ export default function Experience() {
         institution="Klarna Bank AB"
         dateRange="March 2024 - Present"
         position="odd:-left-[405px] lg:odd:-left-[365px] md:odd:-left-[270px] sm:odd:left-[20px]"
-        x_transition={-50}
+        x_transition={xTransition}
       />
     </ul>
   );

@@ -78,7 +78,6 @@ export default function About() {
           <div>
             <hr className="mb-20 mx-[10%] border-t-1" />
           </div>
-          // Put the next sections here
         </div>
       </main>
     </div>
