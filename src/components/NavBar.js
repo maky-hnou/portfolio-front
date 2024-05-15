@@ -116,9 +116,6 @@ export default function NavBar() {
         <nav className="absolute mr-32 right-0 font-medium text-xs uppercase">
           <CustomLink href="/" title="Home" />
           <CustomLink href="/about" title="About" />
-
-          <CustomLink href="/portfolio" title="Portfolio" />
-
           <CustomLink
             href="media/Hani_Yousfi_Resume.pdf"
             title="Résumé"
@@ -142,11 +139,6 @@ export default function NavBar() {
               toggle={handleClick}
             />
 
-            <CustomMobileLink
-              href="/portfolio"
-              title="Portfolio"
-              toggle={handleClick}
-            />
             <CustomMobileLink
               href="media/Hani_Yousfi_Resume.pdf"
               title="Résumé"
