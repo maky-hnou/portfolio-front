@@ -22,7 +22,7 @@ export default function TypeWriterAnimatedText({
   repeatDelay = 0,
 }) {
   const controls = useAnimation();
-  const sentences = text.split("."); // Split text into sentences after every dot
+  const sentences = text.split(/(?<=\.)/); // Split text into sentences after every dot
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.5, once: once });
 
@@ -80,8 +80,6 @@ export default function TypeWriterAnimatedText({
                   </span>
                 </span>
               ))}
-            {index !== sentences.length - 1 && <span>.</span>}{" "}
-            {/* Add dot at the end of every sentence except the last one */}
             <br /> {/* Add new line after every sentence */}
           </span>
         ))}
