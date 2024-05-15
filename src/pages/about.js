@@ -22,7 +22,7 @@ export default function About() {
                 />
               </div>
               <div className="grow-0 shrink-0 basis-5/12 px-4 box-border lg:basis-1/2 md:pt-16">
-                <h1 className="mb-10 uppercase text-4xl text-black font-semibold md:mb-2">
+                <h1 className="mb-2 uppercase text-4xl text-black font-semibold">
                   PERSONAL DETAILS
                 </h1>
                 <p className="mb-8 max-w-[445px] mt-0 text-text_color text-base text-left font-light">
