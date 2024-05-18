@@ -25,7 +25,7 @@ export function ExperienceItem({
       <div className="left-1/2 bg-light_white relative opacity-100">
         <motion.div
           ref={ref}
-          className={`${position} opacity-100 bg-white shadow-[0_10px_27px_3px_rgba(204,204,204,0.2)] relative top-2 w-[360px] p-[30px] box-border lg:w-[320px] lg:px-[20px] md:w-[250px] md:px-2 `}
+          className={`${position} opacity-100 bg-white shadow-[0_10px_27px_3px_rgba(204,204,204,0.2)] relative top-2 w-[360px] p-[30px] box-border lg:w-[320px] lg:px-[20px] md:w-[250px] md:px-2 sm:w-[300px] xs:w-[250px]`}
           variants={{
             hidden: { opacity: 0, x: x_transition },
             visible: { opacity: 1, x: 0 },
