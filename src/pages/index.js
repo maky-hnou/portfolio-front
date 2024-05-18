@@ -51,7 +51,7 @@ export default function Home() {
     <div>
       <Head>
         <title>H. YOUSFI</title>
-        <Link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="w-full h-auto text-black pt-32">
         <div className="bg-light_white">
