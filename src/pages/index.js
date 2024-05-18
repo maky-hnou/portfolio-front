@@ -15,6 +15,7 @@ import {
   NLPIcon,
 } from "../components/Icons";
 import SkillSet from "../components/SkillSet";
+import IconCard from "../components/IconCard";
 
 export default function Home() {
   const sampleText = `Dedicated contemplative coder and astute analyst, fueled by a passion for tackling intricate challenges.
@@ -117,65 +118,40 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-wrap border-box mx-4 text-center my-14">
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
-              <DEIcon className="mx-auto" />
-              <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
-                I create data models, design & build ETL pipelines to route data
-                from multiple sources to a centralized Warehouse/Lakehouse.
-              </p>
-            </div>
+            <IconCard
+              Icon={DEIcon}
+              description="I create data models, design & build ETL pipelines to route datafrom multiple sources to a centralized Warehouse/Lakehouse."
+            />
 
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
-              <SEIcon className="mx-auto" />
-              <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
-                I always try to build solid and efficient solutions, so I keep
-                learning about SWE concepts and apply them.
-              </p>
-            </div>
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
-              <AutIcon className="mx-auto" />
-              <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
-                I am always eager to build automated systems that minimize the
-                human intervention, thus improving the performance and reducing
-                time and cost.
-              </p>
-            </div>
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
-              <CVIcon className="mx-auto" />
-              <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
-                I design and develop computer vision modules and integrate them
-                into the different projects I contribute to.
-              </p>
-            </div>
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
-              <AIIcon className="mx-auto" />
-              <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
-                I am more interested in the math and theory behind Machine
-                Learning and Deep Learning.
-              </p>
-            </div>
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
-              <DSIcon className="mx-auto" />
-              <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
-                I am pationate about Data and what information we could get from
-                it. Processing and analyzing datasets is one of my favorite
-                hobbies
-              </p>
-            </div>
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/2 md:basis-1/2 sm:basis-full">
-              <GENAIIcon className="mx-auto" />
-              <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
-                I design and develop computer vision modules and integrate them
-                into the different projects I contribute to.
-              </p>
-            </div>
-            <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/2 md:basis-1/2 sm:basis-full">
-              <NLPIcon className="mx-auto" />
-              <p className="block max-w-[318px] mx-auto mb-10 text-text_color text-base font-light">
-                I design and develop computer vision modules and integrate them
-                into the different projects I contribute to.
-              </p>
-            </div>
+            <IconCard
+              Icon={SEIcon}
+              description="I always try to build solid and efficient solutions, so I keep learning about SWE concepts and apply them."
+            />
+
+            <IconCard
+              Icon={AutIcon}
+              description="I am always eager to build automated systems that minimize the human intervention, thus improving the performance and reducing time and cost."
+            />
+            <IconCard
+              Icon={CVIcon}
+              description="I design and develop computer vision modules and integrate them into the different projects I contribute to."
+            />
+            <IconCard
+              Icon={AIIcon}
+              description="I am more interested in the math and theory behind Machine Learning and Deep Learning."
+            />
+            <IconCard
+              Icon={DSIcon}
+              description="I am passionate about Data and what information we could get from it. Processing and analyzing datasets is one of my favorite hobbies."
+            />
+            <IconCard
+              Icon={GENAIIcon}
+              description="I design and develop computer vision modules and integrate them into the different projects I contribute to."
+            />
+            <IconCard
+              Icon={NLPIcon}
+              description="I design and develop computer vision modules and integrate them into the different projects I contribute to."
+            />
           </div>
         </div>
         <div className="p-14 bg-white md:px-10">
