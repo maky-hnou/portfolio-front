@@ -52,6 +52,7 @@ export default function Home() {
       <Head>
         <title>H. YOUSFI</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Hani Yousfi's personal website." />
       </Head>
       <main className="w-full h-auto text-black pt-32">
         <div className="bg-light_white">
@@ -71,7 +72,7 @@ export default function Home() {
             <div className="w-80 h-80 md:mx-auto">
               <Image
                 src={profilepicture}
-                alt="Hani"
+                alt="Profile picture of Hani Yousfi"
                 className="place-items-end float-right w-full h-full object-cover border-hidden rounded-full"
               />
             </div>
