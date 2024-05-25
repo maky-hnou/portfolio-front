@@ -25,7 +25,9 @@ export default function Footer() {
           </p>
         </div>
         <div className="mx-auto sm:mx-0 sm:pb-10 z-[90]">
-          <h4 className="mb-6 text-white text-lg font-medium sm:mb-2">Contact</h4>
+          <h4 className="mb-6 text-white text-lg font-medium sm:mb-2">
+            Contact
+          </h4>
           <div className="flex items-center content-center">
             <Link href="mailto:haniyousfi@gmail.com">
               <EmailIcon />
@@ -34,11 +36,14 @@ export default function Footer() {
           </div>
         </div>
         <div className="mx-auto sm:mx-0 sm:pb-10 z-[90]">
-          <h4 className="mb-6 text-white text-lg font-medium sm:mb-2">Follow Me On</h4>
+          <h4 className="mb-6 text-white text-lg font-medium sm:mb-2">
+            Follow Me On
+          </h4>
           <div className="flex items-center content-center -mt-3">
             <Link
               href="https://www.linkedin.com/in/hani-yousfi/"
               target="_blank"
+              aria-label="LinkedIn"
               className=""
             >
               <LinkedInIcon className="mr-3" />
@@ -46,6 +51,7 @@ export default function Footer() {
             <Link
               href="https://github.com/maky-hnou"
               target="_blank"
+              aria-label="GitHub"
               className=""
             >
               <GitHubIcon className="mx-3" />
