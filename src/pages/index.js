@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import profilepicture from "../../media/hani.jpg";
 import AnimatedText from "../components/AnimatedText";
-import Link from "next/link";
 import TypeWriterAnimatedText from "../components/TypeWriterAnimation";
 import {
   DEIcon,
