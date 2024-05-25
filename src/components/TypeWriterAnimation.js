@@ -1,5 +1,5 @@
 import { motion, useInView, useAnimation } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 const defaultAnimations = {
   hidden: {
@@ -24,32 +24,29 @@ export default function TypeWriterAnimatedText({
   const controls = useAnimation();
   const sentences = text.split(/(?<=\.)/); // Split text into sentences after every dot
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.5, once: once });
+  const isInView = useInView(ref, { amount: 0.5, once });
+
+  const show = useCallback(() => {
+    controls.start("visible");
+    if (repeatDelay) {
+      setTimeout(async () => {
+        await controls.start("hidden");
+        controls.start("visible");
+      }, repeatDelay);
+    }
+  }, [controls, repeatDelay]);
 
   useEffect(() => {
-    let timeout;
-    const show = () => {
-      controls.start("visible");
-      if (repeatDelay) {
-        timeout = setTimeout(async () => {
-          await controls.start("hidden");
-          controls.start("visible");
-        }, repeatDelay);
-      }
-    };
-
     if (isInView) {
       show();
     } else {
       controls.start("hidden");
     }
-
-    return () => clearTimeout(timeout);
-  }, [isInView]);
+  }, [isInView, show]);
 
   return (
     <div className={className} ref={ref}>
-      <span className="sr-only">{sentences.join(". ")}</span>
+      <span className="sr-only">{text}</span>
       <motion.span
         initial="hidden"
         animate={controls}
@@ -57,7 +54,7 @@ export default function TypeWriterAnimatedText({
           visible: { transition: { staggerChildren: 0.1 } },
           hidden: {},
         }}
-        aria-hidden
+        aria-hidden="true"
       >
         {sentences.map((sentence, index) => (
           <span className="block pb-2 lg:pb-4" key={`sentence-${index}`}>
@@ -75,9 +72,9 @@ export default function TypeWriterAnimatedText({
                       {char}
                     </motion.span>
                   ))}
-                  <span className="inline-block">
-                    {wordIndex !== array.length - 1 ? "\u00A0" : ""}
-                  </span>
+                  {wordIndex !== array.length - 1 && (
+                    <span className="inline-block">&nbsp;</span>
+                  )}
                 </span>
               ))}
             <br /> {/* Add new line after every sentence */}
