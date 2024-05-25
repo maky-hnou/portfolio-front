@@ -1,12 +1,11 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 
 export default function TextSpan({ children }) {
   const controls = useAnimationControls();
-  const [isPlaying, setIsPlayin] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  const rubberBand = () => {
+  const rubberBand = useCallback(() => {
     controls.start({
       transform: [
         "scale3d(1, 1, 1)",
@@ -17,20 +16,23 @@ export default function TextSpan({ children }) {
         "scale3d(1, 1, 1)",
       ],
       transition: {
+        //duration: 1,
         times: [0, 0.8, 1],
-        // duration: 1, // Set the duration in seconds (adjust as needed)
+        //times: [0, 0.2, 0.4, 0.6, 0.8, 1],
       },
     });
-    setIsPlayin(true);
+    setIsPlaying(true);
+  }, [controls]);
+
+  const handleMouseOver = () => {
+    if (!isPlaying) rubberBand();
   };
 
   return (
     <motion.span
       animate={controls}
-      onMouseOver={() => {
-        if (!isPlaying) rubberBand();
-      }}
-      onAnimationComplete={() => setIsPlayin(false)}
+      onMouseOver={handleMouseOver}
+      onAnimationComplete={() => setIsPlaying(false)}
     >
       {children}
     </motion.span>
