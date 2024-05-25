@@ -1,12 +1,18 @@
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
+// Reusable animation variants
+const variants = {
+  hidden: (xTransition) => ({ opacity: 0, x: xTransition }),
+  visible: { opacity: 1, x: 0 },
+};
+
 export function ExperienceItem({
   title,
   institution,
   dateRange,
   position,
-  x_transition,
+  xTransition,
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: "all" });
@@ -26,10 +32,8 @@ export function ExperienceItem({
         <motion.div
           ref={ref}
           className={`${position} opacity-100 bg-white shadow-[0_10px_27px_3px_rgba(204,204,204,0.2)] relative top-2 w-[360px] p-[30px] box-border lg:w-[320px] lg:px-[20px] md:w-[250px] md:px-2 sm:w-[300px] xs:w-[250px]`}
-          variants={{
-            hidden: { opacity: 0, x: x_transition },
-            visible: { opacity: 1, x: 0 },
-          }}
+          custom={xTransition}
+          variants={variants}
           initial="hidden"
           animate={control}
           transition={{ duration: 0.75, delay: 0.25 }}
@@ -48,29 +52,18 @@ export function ExperienceItem({
 }
 
 export default function Experience() {
-  const [windowWidth, setWindowWidth] = useState(() => {
-    if (typeof window !== "undefined") {
-      return window.innerWidth;
-    } else {
-      return 0; // Default value if window is not defined
-    }
-  });
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setWindowWidth(window.innerWidth);
-  //   };
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
 
-  //   const resizeObserver = new ResizeObserver(handleResize);
-  //   resizeObserver.observe(document.documentElement);
-
-  //   return () => {
-  //     resizeObserver.unobserve(document.documentElement);
-  //   };
-  // }, []);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const xTransition = windowWidth > 670 ? -50 : 50;
-  console.log("xtrx:", xTransition);
 
   return (
     <ul className="m-0 p-0 list-none list-outside list-image-none box-border">
@@ -79,42 +72,42 @@ export default function Experience() {
         institution="Novel-Ti"
         dateRange="February 2018 - July 2018"
         position="odd:left-[50px] md:odd:left-[20px]"
-        x_transition={50}
+        xTransition={50}
       />
       <ExperienceItem
         title="R&D Engineer - Artificial Intelligence"
         institution="Novel-Ti"
         dateRange="September 2018 - July 2021"
         position="odd:-left-[405px] lg:odd:-left-[365px] md:odd:-left-[270px] sm:odd:left-[20px]"
-        x_transition={xTransition}
+        xTransition={xTransition}
       />
       <ExperienceItem
         title="IT Consultant & Machine Learning Engineer"
         institution="Aigometri AB"
         dateRange="August 2021 - April 2022"
         position="odd:left-[50px] md:odd:left-[20px]"
-        x_transition={50}
+        xTransition={50}
       />
       <ExperienceItem
         title="Data Engineer"
         institution="Klarna Bank AB"
         dateRange="May 2022 - May 2023"
         position="odd:-left-[405px] lg:odd:-left-[365px] md:odd:-left-[270px] sm:odd:left-[20px]"
-        x_transition={xTransition}
+        xTransition={xTransition}
       />
       <ExperienceItem
-        title="Sfotware Engineer"
+        title="Software Engineer"
         institution="Klarna Bank AB"
         dateRange="May 2023 - Present"
         position="odd:left-[50px] md:odd:left-[20px]"
-        x_transition={50}
+        xTransition={50}
       />
       <ExperienceItem
         title="Senior Engineer"
         institution="Klarna Bank AB"
         dateRange="March 2024 - Present"
         position="odd:-left-[405px] lg:odd:-left-[365px] md:odd:-left-[270px] sm:odd:left-[20px]"
-        x_transition={xTransition}
+        xTransition={xTransition}
       />
     </ul>
   );
