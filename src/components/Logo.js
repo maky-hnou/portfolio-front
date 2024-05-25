@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 const MotionLink = motion(Link);
 
 const TextWithLetterShadow = ({ children }) => {
-    const singleLetterVariant = {
+  const singleLetterVariant = {
     initial: { textShadow: "none" },
     hover: { textShadow: "0px 5px 8px #8490ff" },
   };
 
   return (
-    <motion.span whileHover="hover">
+    <motion.span initial="initial" whileHover="hover">
       {Array.from(children).map((letter, index) => (
         <motion.span key={index} variants={singleLetterVariant}>
           {letter}
@@ -21,18 +21,21 @@ const TextWithLetterShadow = ({ children }) => {
   );
 };
 
+const logoVariants = {
+  hover: { scale: 1.2 },
+};
+
 export default function Logo() {
   return (
-    <div className="flex items-start justify-start">
+    <nav className="flex items-start justify-start">
       <MotionLink
         href="/"
-        className="w-max ml-10 px-2 flex text-light_purple items-start justify-start text-4xl font-medium md:px-0"
-        whileHover={{
-          scale: 1.2,
-        }}
+        className="ml-10 px-2 flex text-light_purple text-4xl font-medium md:px-0"
+        variants={logoVariants}
+        whileHover="hover"
       >
         <TextWithLetterShadow>H.Yousfi</TextWithLetterShadow>
       </MotionLink>
-    </div>
+    </nav>
   );
 }
