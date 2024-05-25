@@ -57,7 +57,7 @@ export default function NavBar() {
   useEffect(() => {
     const handler = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setIsOpen(!isOpen);
+        setIsOpen(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -65,7 +65,7 @@ export default function NavBar() {
     return () => {
       document.removeEventListener("mousedown", handler);
     };
-  });
+  }, [isOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
