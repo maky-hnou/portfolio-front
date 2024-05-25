@@ -57,7 +57,7 @@ export default function Home() {
       <main className="w-full h-auto text-black pt-32">
         <div className="bg-light_white">
           <div className="flex p-14 items-center justify-between w-full md:block md:px-10">
-            <div className="flex-1 pr-14">
+            <div className="flex-1 pr-14 md:pr-0">
               <h5 className="text-xl font-semibold">I am</h5>
               <AnimatedText
                 text="Hani Yousfi"
