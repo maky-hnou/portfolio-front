@@ -17,7 +17,7 @@ export default function About() {
               <div className="w-80 h-80">
                 <Image
                   src={profilepicture}
-                  alt="Hani"
+                  alt="Profile picture of Hani Yousfi"
                   className="place-items-end float-right w-full h-full object-cover border-hidden rounded-full"
                 />
               </div>
