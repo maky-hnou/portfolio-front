@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { Poppins, Montserrat } from "next/font/google";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import ChatBot from "../components/ChatBot";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -28,7 +29,9 @@ export default function App({ Component, pageProps }) {
       >
         <NavBar />
         <Component {...pageProps} />
+
         <Footer />
+        <ChatBot />
       </main>
     </>
   );
