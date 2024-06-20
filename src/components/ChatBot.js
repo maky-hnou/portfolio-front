@@ -27,10 +27,17 @@ export function ChatInterface({ messages, handleSendMessage }) {
       transition={{ delay: 0.0 }}
       onClick={handleClickInside}
     >
-      <div className="flex-grow p-4 overflow-auto">
+      <div className="flex-grow p-4 overflow-auto flex flex-col">
         {messages.map((msg, index) => (
-          <div key={index} className="mb-2 p-2 bg-gray-100 rounded">
-            {msg}
+          <div
+            key={index}
+            className={`mb-2 p-2 rounded-lg max-w-[75%] break-words ${
+              msg.type === "user"
+                ? "bg-indigo-500 text-white self-end rounded-br-none"
+                : "bg-gray-200 self-start rounded-bl-none"
+            }`}
+          >
+            {msg.text}
           </div>
         ))}
       </div>
@@ -62,7 +69,11 @@ export default function ChatBot({ classname }) {
   };
 
   const handleSendMessage = (message) => {
-    setMessages([...messages, message]);
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { text: message, type: "user" },
+      { text: "Your message has been received", type: "bot" },
+    ]);
   };
 
   return (
