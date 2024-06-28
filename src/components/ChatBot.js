@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { ChatBotIcon } from "./Icons";
+import { ChatBotIcon, CloseIcon, BotIcon } from "./Icons";
 import { motion } from "framer-motion";
 
-export function ChatInterface({ messages, handleSendMessage }) {
+export function ChatInterface({ messages, handleSendMessage, handleClose }) {
   const [message, setMessage] = useState("");
 
   const handleInputChange = (e) => {
@@ -27,7 +27,21 @@ export function ChatInterface({ messages, handleSendMessage }) {
       transition={{ delay: 0.0 }}
       onClick={handleClickInside}
     >
-      <div className="flex-grow p-4 overflow-auto flex flex-col">
+      <div className="flex h-14 shrink-0 bg-slate-300">
+        <BotIcon />
+        <div className="my-auto w-full text-black">
+          <div className="font-semibold text-sm">ChatBot</div>
+          <div className="flex">
+            <div className="rounded-full h-2 w-2 mx-1 my-auto bg-green-600"></div>
+            <div>Online</div>
+          </div>
+        </div>
+        <CloseIcon
+          className="absolute top-4 right-2 cursor-pointer"
+          onClick={handleClose}
+        />
+      </div>
+      <div className="flex-grow p-4 overflow-auto flex flex-col relative">
         {messages.map((msg, index) => (
           <div
             key={index}
@@ -46,7 +60,7 @@ export function ChatInterface({ messages, handleSendMessage }) {
           type="text"
           value={message}
           onChange={handleInputChange}
-          className="flex-grow p-2 border border-gray-300 rounded mr-2"
+          className="flex-grow p-2 border border-gray-300 rounded mr-2 bg-slate-300"
           placeholder="Type a message..."
         />
         <button
@@ -68,6 +82,10 @@ export default function ChatBot({ classname }) {
     setIsOpen(!isOpen);
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   const handleSendMessage = (message) => {
     setMessages((prevMessages) => [
       ...prevMessages,
@@ -85,6 +103,7 @@ export default function ChatBot({ classname }) {
         <ChatInterface
           messages={messages}
           handleSendMessage={handleSendMessage}
+          handleClose={handleClose}
         />
       )}
       <ChatBotIcon />
