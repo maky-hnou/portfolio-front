@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChatBotIcon, CloseIcon, BotIcon } from "./Icons";
+import { ChatBotIcon, CloseIcon, BotIcon, SendIcon } from "./Icons";
 import { motion } from "framer-motion";
 
 export function ChatInterface({ messages, handleSendMessage, handleClose }) {
@@ -63,12 +63,10 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
           className="flex-grow p-2 border border-gray-300 rounded mr-2 bg-slate-300"
           placeholder="Type a message..."
         />
-        <button
+        <SendIcon
+          className="p-2 cursor-pointer"
           onClick={handleSendClick}
-          className="bg-indigo-500 text-white p-2 rounded"
-        >
-          Send
-        </button>
+        />
       </div>
     </motion.div>
   );
