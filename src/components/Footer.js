@@ -4,9 +4,9 @@ import { EmailIcon, GitHubIcon, LinkedInIcon } from "./Icons";
 
 export default function Footer() {
   return (
-    <footer className="bg-black py-20 w-full h-auto z-[90]">
-      <div className="z-[90] flex flex-wrap border-box px-28 text-text_color text-base font-light justify-between lg:px-12 md:px-2 sm:px-20 sm:grid sm:justify-start">
-        <div className="mx-auto sm:mx-0 sm:pb-10 z-[90]">
+    <footer className="bg-black py-20 w-full h-auto">
+      <div className="flex flex-wrap border-box px-28 text-text_color text-base font-light justify-between lg:px-12 md:px-2 sm:px-20 sm:grid sm:justify-start">
+        <div className="mx-auto sm:mx-0 sm:pb-10">
           <h4 className="mb-6 text-white text-lg font-medium sm:mb-2">
             About This Page
           </h4>
@@ -24,7 +24,7 @@ export default function Footer() {
             Copyright &copy; {new Date().getFullYear()} All rights reserved.
           </p>
         </div>
-        <div className="mx-auto sm:mx-0 sm:pb-10 z-[90]">
+        <div className="mx-auto sm:mx-0 sm:pb-10">
           <h4 className="mb-6 text-white text-lg font-medium sm:mb-2">
             Contact
           </h4>
@@ -35,7 +35,7 @@ export default function Footer() {
             <p className="m-auto ml-2">haniyousfi@gmail.com</p>
           </div>
         </div>
-        <div className="mx-auto sm:mx-0 sm:pb-10 z-[90]">
+        <div className="mx-auto sm:mx-0 sm:pb-10">
           <h4 className="mb-6 text-white text-lg font-medium sm:mb-2">
             Follow Me On
           </h4>
