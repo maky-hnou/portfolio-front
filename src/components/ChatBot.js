@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ChatBotIcon, CloseIcon, BotIcon, SendIcon } from "./Icons";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 export function ChatInterface({ messages, handleSendMessage, handleClose }) {
   const [message, setMessage] = useState("");
@@ -52,6 +53,7 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
             }`}
           >
             {msg.text}
+            <div className="text-xs text-gray-500">{msg.timestamp}</div>
           </div>
         ))}
       </div>
@@ -72,9 +74,10 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
   );
 }
 
-export default function ChatBot({ classname }) {
+export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
+  const [chatId, setChatId] = useState(null);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -84,12 +87,80 @@ export default function ChatBot({ classname }) {
     setIsOpen(false);
   };
 
-  const handleSendMessage = (message) => {
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { text: message, type: "user" },
-      { text: "Your message has been received", type: "bot" },
-    ]);
+  const formatAMPM = (date) => {
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    const strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
+  };
+
+  const handleSendMessage = async (message) => {
+    const timestamp = formatAMPM(new Date());
+
+    if (!chatId) {
+      try {
+        const response = await axios.post('http://localhost:5000/api/v1/chat', {}, {
+          headers: { 'Content-type': 'application/json' }
+        });
+        setChatId(response.data.chat_id);
+
+        // Send the message after setting chatId
+        const messagePerson = {
+          text: message,
+          type: 'user',
+          timestamp
+        };
+        setMessages((prevMessages) => [...prevMessages, messagePerson]);
+
+        const aiResponse = await axios.post('http://localhost:5000/api/v1/message', {
+          chat_id: response.data.chat_id,
+          message
+        }, {
+          headers: { 'Content-type': 'application/json' }
+        });
+
+        const messageChatbot = {
+          text: aiResponse.data.ai_message,
+          type: 'bot',
+          timestamp: formatAMPM(new Date())
+        };
+
+        setMessages((prevMessages) => [...prevMessages, messageChatbot]);
+      } catch (error) {
+        console.error('Error creating chat or sending message:', error);
+      }
+    } else {
+      const messagePerson = {
+        text: message,
+        type: 'user',
+        timestamp
+      };
+
+      setMessages((prevMessages) => [...prevMessages, messagePerson]);
+
+      try {
+        const aiResponse = await axios.post('http://localhost:5000/api/v1/message', {
+          chat_id: chatId,
+          message
+        }, {
+          headers: { 'Content-type': 'application/json' }
+        });
+
+        const messageChatbot = {
+          text: aiResponse.data.ai_message,
+          type: 'bot',
+          timestamp: formatAMPM(new Date())
+        };
+
+        setMessages((prevMessages) => [...prevMessages, messageChatbot]);
+      } catch (error) {
+        console.error('Error sending message:', error);
+      }
+    }
   };
 
   return (
