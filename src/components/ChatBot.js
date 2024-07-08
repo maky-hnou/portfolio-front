@@ -55,7 +55,7 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
           </div>
         ))}
       </div>
-      <div className="p-4 border-t border-gray-200 flex items-center">
+      <div className="py-4 pl-4 border-t border-gray-200 flex items-center">
         <input
           type="text"
           value={message}
