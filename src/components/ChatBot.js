@@ -43,6 +43,12 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
         />
       </div>
       <div className="flex-grow p-4 overflow-auto flex flex-col relative">
+        {/* Welcome message */}
+        <div className="mb-2 p-2 rounded-lg max-w-[75%] bg-gray-200 self-start rounded-bl-none">
+          Welcome to the chat, feel free to ask any question about Hani, and I'll do my best to answer.
+        </div>
+
+        {/* User messages */}
         {messages.map((msg, index) => (
           <div
             key={index}
