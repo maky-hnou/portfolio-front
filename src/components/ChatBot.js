@@ -47,12 +47,12 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
           <div
             key={index}
             className={`mb-2 p-2 rounded-lg max-w-[75%] break-words ${
-              msg.type === "user"
+              msg.message_by === "human"
                 ? "bg-indigo-500 text-white self-end rounded-br-none"
                 : "bg-gray-200 self-start rounded-bl-none"
             }`}
           >
-            {msg.text}
+            {msg.message_text}
             <div className="text-xs text-gray-500">{msg.timestamp}</div>
           </div>
         ))}
@@ -110,22 +110,23 @@ export default function ChatBot() {
 
         // Send the message after setting chatId
         const messagePerson = {
-          text: message,
-          type: 'user',
+          message_text: message,
+          message_by: 'human',
           timestamp
         };
         setMessages((prevMessages) => [...prevMessages, messagePerson]);
 
         const aiResponse = await axios.post('http://localhost:5000/api/v1/message', {
           chat_id: response.data.chat_id,
-          message
+          message_text: message,
+          message_by: 'human'
         }, {
           headers: { 'Content-type': 'application/json' }
         });
 
         const messageChatbot = {
-          text: aiResponse.data.ai_message,
-          type: 'bot',
+          message_text: aiResponse.data.message_text,
+          message_by: 'ai',
           timestamp: formatAMPM(new Date())
         };
 
@@ -135,8 +136,8 @@ export default function ChatBot() {
       }
     } else {
       const messagePerson = {
-        text: message,
-        type: 'user',
+        message_text: message,
+        message_by: 'human',
         timestamp
       };
 
@@ -145,14 +146,15 @@ export default function ChatBot() {
       try {
         const aiResponse = await axios.post('http://localhost:5000/api/v1/message', {
           chat_id: chatId,
-          message
+          message_text: message,
+          message_by: 'human',
         }, {
           headers: { 'Content-type': 'application/json' }
         });
 
         const messageChatbot = {
-          text: aiResponse.data.ai_message,
-          type: 'bot',
+          message_text: aiResponse.data.message_text,
+          message_by: 'ai',
           timestamp: formatAMPM(new Date())
         };
 
