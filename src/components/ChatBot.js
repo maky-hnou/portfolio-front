@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ChatBotIcon, CloseIcon, BotIcon, SendIcon } from "./Icons";
 import { motion } from "framer-motion";
 import axios from "axios";
 
 export function ChatInterface({ messages, handleSendMessage, handleClose }) {
   const [message, setMessage] = useState("");
+  const messagesEndRef = useRef(null);
 
   const handleInputChange = (e) => {
     setMessage(e.target.value);
@@ -20,6 +21,12 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
   const handleClickInside = (e) => {
     e.stopPropagation(); // Prevent the click event from propagating to the parent element
   };
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
 
   return (
     <motion.div
@@ -45,7 +52,8 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
       <div className="flex-grow p-4 overflow-auto flex flex-col relative">
         {/* Welcome message */}
         <div className="mb-2 p-2 rounded-lg max-w-[75%] bg-gray-200 self-start rounded-bl-none">
-          Welcome to the chat, feel free to ask any question about Hani, and I'll do my best to answer.
+          Welcome to the chat, feel free to ask any question about Hani, and
+          I'll do my best to answer.
         </div>
 
         {/* User messages */}
@@ -62,6 +70,9 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
             <div className="text-xs text-gray-500">{msg.timestamp}</div>
           </div>
         ))}
+
+        {/* Dummy div for scrolling */}
+        <div ref={messagesEndRef} />
       </div>
       <div className="py-4 pl-4 border-t border-gray-200 flex items-center">
         <input
@@ -71,10 +82,7 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
           className="flex-grow p-2 border border-gray-300 rounded mr-2 bg-slate-300"
           placeholder="Type a message..."
         />
-        <SendIcon
-          className="p-2 cursor-pointer"
-          onClick={handleSendClick}
-        />
+        <SendIcon className="p-2 cursor-pointer" onClick={handleSendClick} />
       </div>
     </motion.div>
   );
@@ -96,11 +104,11 @@ export default function ChatBot() {
   const formatAMPM = (date) => {
     let hours = date.getHours();
     let minutes = date.getMinutes();
-    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const ampm = hours >= 12 ? "PM" : "AM";
     hours = hours % 12;
     hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    const strTime = hours + ':' + minutes + ' ' + ampm;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    const strTime = hours + ":" + minutes + " " + ampm;
     return strTime;
   };
 
@@ -109,64 +117,76 @@ export default function ChatBot() {
 
     if (!chatId) {
       try {
-        const response = await axios.post('http://localhost:5000/api/v1/chat', {}, {
-          headers: { 'Content-type': 'application/json' }
-        });
+        const response = await axios.post(
+          "http://localhost:5000/api/v1/chat",
+          {},
+          {
+            headers: { "Content-type": "application/json" },
+          }
+        );
         setChatId(response.data.chat_id);
 
         // Send the message after setting chatId
         const messagePerson = {
           message_text: message,
-          message_by: 'human',
-          timestamp
+          message_by: "human",
+          timestamp,
         };
         setMessages((prevMessages) => [...prevMessages, messagePerson]);
 
-        const aiResponse = await axios.post('http://localhost:5000/api/v1/message', {
-          chat_id: response.data.chat_id,
-          message_text: message,
-          message_by: 'human'
-        }, {
-          headers: { 'Content-type': 'application/json' }
-        });
+        const aiResponse = await axios.post(
+          "http://localhost:5000/api/v1/message",
+          {
+            chat_id: response.data.chat_id,
+            message_text: message,
+            message_by: "human",
+          },
+          {
+            headers: { "Content-type": "application/json" },
+          }
+        );
 
         const messageChatbot = {
           message_text: aiResponse.data.message_text,
-          message_by: 'ai',
-          timestamp: formatAMPM(new Date())
+          message_by: "ai",
+          timestamp: formatAMPM(new Date()),
         };
 
         setMessages((prevMessages) => [...prevMessages, messageChatbot]);
       } catch (error) {
-        console.error('Error creating chat or sending message:', error);
+        console.error("Error creating chat or sending message:", error);
       }
     } else {
       const messagePerson = {
         message_text: message,
-        message_by: 'human',
-        timestamp
+        message_by: "human",
+        timestamp,
       };
 
       setMessages((prevMessages) => [...prevMessages, messagePerson]);
 
       try {
-        const aiResponse = await axios.post('http://localhost:5000/api/v1/message', {
-          chat_id: chatId,
-          message_text: message,
-          message_by: 'human',
-        }, {
-          headers: { 'Content-type': 'application/json' }
-        });
+        const aiResponse = await axios.post(
+          "http://localhost:5000/api/v1/message",
+          {
+            chat_id: chatId,
+            message_text: message,
+            message_by: "human",
+          },
+          {
+            headers: { "Content-type": "application/json" },
+          }
+        );
 
         const messageChatbot = {
           message_text: aiResponse.data.message_text,
-          message_by: 'ai',
-          timestamp: formatAMPM(new Date())
+          message_by: "ai",
+          timestamp: formatAMPM(new Date()),
         };
 
         setMessages((prevMessages) => [...prevMessages, messageChatbot]);
       } catch (error) {
-        console.error('Error sending message:', error);
+        console.error("Error sending message:", error);
       }
     }
   };
