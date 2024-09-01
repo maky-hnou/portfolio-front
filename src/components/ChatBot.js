@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChatBotIcon, CloseIcon, BotIcon, SendIcon } from "./Icons";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 
 export function ChatInterface({ messages, handleSendMessage, handleClose }) {
@@ -30,9 +30,11 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
 
   return (
     <motion.div
-      className="fixed w-[420px] h-[530px] bg-white bottom-5 right-8 rounded-xl border-solid border-2 border-indigo-500/100 overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.33)] flex flex-col"
-      animate={{ y: -100 }}
-      transition={{ delay: 0.0 }}
+      className="fixed w-[380px] h-[530px] bg-white bottom-4 right-4 rounded-xl border-solid border-2 border-indigo-500/100 overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.33)] flex flex-col"
+      initial={{ y: 600 }} // Start position below the screen
+      animate={{ y: 0 }} // Animate to position 0 (visible on screen)
+      exit={{ y: 600 }} // Exit animation goes back down
+      transition={{ type: "spring", stiffness: 100 }} // Smooth transition
       onClick={handleClickInside}
     >
       <div className="flex h-14 shrink-0 bg-slate-300">
@@ -79,7 +81,7 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
           type="text"
           value={message}
           onChange={handleInputChange}
-          className="flex-grow p-2 border border-gray-300 rounded mr-2 bg-slate-300"
+          className=" w-72 flex-grow p-2 border border-gray-300 rounded mr-2 bg-slate-300"
           placeholder="Type a message..."
         />
         <SendIcon className="p-2 cursor-pointer" onClick={handleSendClick} />
@@ -192,18 +194,21 @@ export default function ChatBot() {
   };
 
   return (
-    <div
-      className="right-4 bottom-4 fixed w-14 h-14 bg-gradient-to-r from-indigo-500 to-cyan-300 rounded-full cursor-pointer"
-      onClick={handleClick}
-    >
-      {isOpen && (
-        <ChatInterface
-          messages={messages}
-          handleSendMessage={handleSendMessage}
-          handleClose={handleClose}
-        />
+    <div className="right-4 bottom-4 fixed">
+      {!isOpen && (
+        <div className="w-14 h-14 bg-gradient-to-r from-indigo-500 to-cyan-300 rounded-full cursor-pointer">
+          <ChatBotIcon onClick={handleClick} />
+        </div>
       )}
-      <ChatBotIcon />
+      <AnimatePresence>
+        {isOpen && (
+          <ChatInterface
+            messages={messages}
+            handleSendMessage={handleSendMessage}
+            handleClose={handleClose}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
