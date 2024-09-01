@@ -3,7 +3,12 @@ import { ChatBotIcon, CloseIcon, BotIcon, SendIcon } from "./Icons";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 
-export function ChatInterface({ messages, handleSendMessage, handleClose }) {
+export function ChatInterface({
+  messages,
+  handleSendMessage,
+  handleClose,
+  handleDelay
+}) {
   const [message, setMessage] = useState("");
   const messagesEndRef = useRef(null);
 
@@ -30,11 +35,15 @@ export function ChatInterface({ messages, handleSendMessage, handleClose }) {
 
   return (
     <motion.div
-      className="fixed w-[380px] h-[530px] bg-white bottom-4 right-4 rounded-xl border-solid border-2 border-indigo-500/100 overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.33)] flex flex-col"
+      className="fixed w-[380px] h-[530px] bg-white bottom-4 right-8 rounded-xl border-solid border-2 border-indigo-500/100 overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.33)] flex flex-col"
       initial={{ y: 600 }} // Start position below the screen
       animate={{ y: 0 }} // Animate to position 0 (visible on screen)
       exit={{ y: 600 }} // Exit animation goes back down
-      transition={{ type: "spring", stiffness: 100 }} // Smooth transition
+      transition={{
+        type: "spring",
+        stiffness: 100,
+        delay: handleDelay ? 0.5 : 0,
+      }} // Smooth transition
       onClick={handleClickInside}
     >
       <div className="flex h-14 shrink-0 bg-slate-300">
@@ -94,12 +103,23 @@ export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [chatId, setChatId] = useState(null);
+  const [isChatAnimating, setIsChatAnimating] = useState(false);
 
   const handleClick = () => {
-    setIsOpen(!isOpen);
+    if (!isOpen) {
+      // Start the chat opening animation sequence
+      setIsChatAnimating(true);
+      setIsOpen(true);
+    } else {
+      // Start the chat closing animation sequence
+      setIsChatAnimating(true);
+      setIsOpen(false);
+    }
   };
 
   const handleClose = () => {
+    // Trigger the closing of chat on CloseIcon click
+    setIsChatAnimating(true);
     setIsOpen(false);
   };
 
@@ -194,18 +214,34 @@ export default function ChatBot() {
   };
 
   return (
-    <div className="right-4 bottom-4 fixed">
-      {!isOpen && (
-        <div className="w-14 h-14 bg-gradient-to-r from-indigo-500 to-cyan-300 rounded-full cursor-pointer">
-          <ChatBotIcon onClick={handleClick} />
-        </div>
-      )}
+    <div className="fixed right-4 bottom-4">
+      <AnimatePresence>
+        {!isOpen && (
+          <motion.div
+            className="w-14 h-14 bg-gradient-to-r from-indigo-500 to-cyan-300 rounded-full cursor-pointer"
+            initial={{ y: 100 }} // Icon starts off-screen at the bottom
+            animate={{ y: 0 }} // Icon animates to its normal position
+            exit={{ y: 100 }} // Icon moves to the bottom when chat opens
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              delay: isChatAnimating ? 0.5 : 0,
+            }} // Add delay when animating
+            onClick={handleClick}
+            onAnimationComplete={() => setIsChatAnimating(false)}
+          >
+            <ChatBotIcon />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <AnimatePresence>
         {isOpen && (
           <ChatInterface
             messages={messages}
             handleSendMessage={handleSendMessage}
             handleClose={handleClose}
+            handleDelay={isChatAnimating}
           />
         )}
       </AnimatePresence>
