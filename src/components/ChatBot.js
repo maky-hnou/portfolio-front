@@ -2,12 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import { ChatBotIcon, CloseIcon, BotIcon, SendIcon } from "./Icons";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
+import ReactMarkdown from "react-markdown"; // Import react-markdown
 
 export function ChatInterface({
   messages,
   handleSendMessage,
   handleClose,
-  handleDelay
+  handleDelay,
 }) {
   const [message, setMessage] = useState("");
   const messagesEndRef = useRef(null);
@@ -67,7 +68,7 @@ export function ChatInterface({
           I'll do my best to answer.
         </div>
 
-        {/* User messages */}
+        {/* messages */}
         {messages.map((msg, index) => (
           <div
             key={index}
@@ -77,7 +78,12 @@ export function ChatInterface({
                 : "bg-gray-200 self-start rounded-bl-none"
             }`}
           >
-            {msg.message_text}
+            {/* Render markdown if the message is from the AI */}
+            {msg.message_by === "ai" ? (
+              <ReactMarkdown>{msg.message_text}</ReactMarkdown>
+            ) : (
+              msg.message_text
+            )}
             <div className="text-xs text-gray-500">{msg.timestamp}</div>
           </div>
         ))}
