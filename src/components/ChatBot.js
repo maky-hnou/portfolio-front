@@ -36,7 +36,7 @@ export function ChatInterface({
 
   return (
     <motion.div
-      className="fixed w-[380px] h-[530px] bg-white bottom-4 right-8 rounded-xl border-solid border-2 border-indigo-500/100 overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.33)] flex flex-col"
+      className="fixed w-[380px] h-[530px] bg-white bottom-4 right-8 rounded-xl border-solid border-2 border-indigo-500/100 overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.33)] flex flex-col sm:w-[350px] sm:h-[540px] sm:right-4"
       initial={{ y: 600 }} // Start position below the screen
       animate={{ y: 0 }} // Animate to position 0 (visible on screen)
       exit={{ y: 600 }} // Exit animation goes back down
@@ -96,7 +96,7 @@ export function ChatInterface({
           type="text"
           value={message}
           onChange={handleInputChange}
-          className=" w-72 flex-grow p-2 border border-gray-300 rounded mr-2 bg-slate-300"
+          className=" w-72 flex-grow p-2 border border-gray-300 rounded mr-2 bg-slate-300 sm:w-64"
           placeholder="Type a message..."
         />
         <SendIcon className="p-2 cursor-pointer" onClick={handleSendClick} />
