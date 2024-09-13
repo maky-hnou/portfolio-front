@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { ChatBotIcon, CloseIcon, BotIcon, SendIcon } from "./Icons";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
-import ReactMarkdown from "react-markdown"; // Import react-markdown
+import ReactMarkdown from "react-markdown";
 
 export function ChatInterface({
   messages,
@@ -76,7 +76,7 @@ export function ChatInterface({
               msg.message_by === "human"
                 ? "bg-indigo-500 text-white self-end rounded-br-none"
                 : "bg-gray-200 self-start rounded-bl-none"
-            }`}
+            } ${msg.message_text.includes("Error") ? "text-red-600" : ""}`}
           >
             {/* Render markdown if the message is from the AI */}
             {msg.message_by === "ai" ? (
@@ -182,7 +182,7 @@ export default function ChatBot() {
 
         setMessages((prevMessages) => [...prevMessages, messageChatbot]);
       } catch (error) {
-        console.error("Error creating chat or sending message:", error);
+        handleError(error, timestamp);
       }
     } else {
       const messagePerson = {
@@ -214,8 +214,36 @@ export default function ChatBot() {
 
         setMessages((prevMessages) => [...prevMessages, messageChatbot]);
       } catch (error) {
-        console.error("Error sending message:", error);
+        handleError(error, timestamp);
       }
+    }
+  };
+
+  // Helper function to handle error
+  const handleError = (error, timestamp) => {
+    if (error.response) {
+      // Extract the message from the 'detail' field
+      const errorMessage =
+        error.response.data.detail || "Something went wrong!";
+      const errorStatus = error.response.status;
+
+      const errorChatbotMessage = {
+        message_text: `Error ${errorStatus}: ${errorMessage}`,
+        message_by: "ai",
+        timestamp: formatAMPM(new Date()),
+      };
+
+      setMessages((prevMessages) => [...prevMessages, errorChatbotMessage]);
+    } else {
+      const errorMessage = "An error occurred. Please try again later.";
+
+      const errorChatbotMessage = {
+        message_text: errorMessage,
+        message_by: "ai",
+        timestamp: formatAMPM(new Date()),
+      };
+
+      setMessages((prevMessages) => [...prevMessages, errorChatbotMessage]);
     }
   };
 
