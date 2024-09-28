@@ -6,8 +6,8 @@ name: Node.js CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
 
 jobs:
   build:
@@ -18,7 +18,8 @@ jobs:
       matrix:
         node-version: [v20.5.1]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    env: NEXT_PUBLIC_API_URL: ${{secrets.NEXT_PUBLIC_API_URL}}
+    env:
+      NEXT_PUBLIC_API_URL: ${{secrets.NEXT_PUBLIC_API_URL}}
 
     steps:
     - uses: actions/checkout@v4
