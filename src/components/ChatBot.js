@@ -152,7 +152,7 @@ export default function ChatBot() {
     if (!chatId) {
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/v1/chat",
+          `${process.env.NEXT_PUBLIC_API_URL}/chat`,
           {},
           {
             headers: { "Content-type": "application/json" },
@@ -169,7 +169,7 @@ export default function ChatBot() {
         setMessages((prevMessages) => [...prevMessages, messagePerson]);
 
         const aiResponse = await axios.post(
-          "http://localhost:5000/api/v1/message",
+          `${process.env.NEXT_PUBLIC_API_URL}/message`,
           {
             chat_id: response.data.chat_id,
             message_text: message,
@@ -201,7 +201,7 @@ export default function ChatBot() {
 
       try {
         const aiResponse = await axios.post(
-          "http://localhost:5000/api/v1/message",
+          `${process.env.NEXT_PUBLIC_API_URL}/message`,
           {
             chat_id: chatId,
             message_text: message,
