@@ -15,6 +15,11 @@ export function ChatInterface({
 
   const handleInputChange = (e) => {
     setMessage(e.target.value);
+
+    // Check if the Enter key is pressed
+    if (e.key === "Enter") {
+      handleSendClick();
+    }
   };
 
   const handleSendClick = () => {
@@ -96,6 +101,7 @@ export function ChatInterface({
           type="text"
           value={message}
           onChange={handleInputChange}
+          onKeyDown={handleInputChange}
           className=" w-72 flex-grow p-2 border border-gray-300 rounded mr-2 bg-slate-300 sm:w-64"
           placeholder="Type a message..."
         />
