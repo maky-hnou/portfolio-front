@@ -15,6 +15,11 @@ export function ChatInterface({
 
   const handleInputChange = (e) => {
     setMessage(e.target.value);
+
+    // Check if the Enter key is pressed
+    if (e.key === "Enter") {
+      handleSendClick();
+    }
   };
 
   const handleSendClick = () => {
@@ -96,6 +101,7 @@ export function ChatInterface({
           type="text"
           value={message}
           onChange={handleInputChange}
+          onKeyDown={handleInputChange}
           className=" w-72 flex-grow p-2 border border-gray-300 rounded mr-2 bg-slate-300 sm:w-64"
           placeholder="Type a message..."
         />
@@ -146,7 +152,7 @@ export default function ChatBot() {
     if (!chatId) {
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/v1/chat",
+          `${process.env.NEXT_PUBLIC_API_URL}/chat`,
           {},
           {
             headers: { "Content-type": "application/json" },
@@ -163,7 +169,7 @@ export default function ChatBot() {
         setMessages((prevMessages) => [...prevMessages, messagePerson]);
 
         const aiResponse = await axios.post(
-          "http://localhost:5000/api/v1/message",
+          `${process.env.NEXT_PUBLIC_API_URL}/message`,
           {
             chat_id: response.data.chat_id,
             message_text: message,
@@ -195,7 +201,7 @@ export default function ChatBot() {
 
       try {
         const aiResponse = await axios.post(
-          "http://localhost:5000/api/v1/message",
+          `${process.env.NEXT_PUBLIC_API_URL}/message`,
           {
             chat_id: chatId,
             message_text: message,
