@@ -97,10 +97,11 @@ export default function Home() {
               I've taken a look at or worked on taught me new skills.
             </p>
             <p className="mb-4 box-sizing: border-box">
-              Currently, I am occupying a Data Engineer post at Klarna. My work
-              mainly revolves around data modeling, designing and building data
-              pipelines and data warehousing. Thus making the data available and
-              accessible for the Data Scientists and Business Analysts.
+              Currently, I am occupying a Senior Software Engineer position at
+              Klarna. I am responsible for centralizing the organization’s
+              internal data, designing ETL pipelines, creating data models, and
+              collaborating with teams to align integration requirements for
+              data migration.
             </p>
           </div>
         </div>
