@@ -146,11 +146,11 @@ export default function Home() {
             />
             <IconCard
               Icon={GENAIIcon}
-              description="I design and develop computer vision modules and integrate them into the different projects I contribute to."
+              description="I use generative AI modules, leveraging state-of-the-art models, and integrate them into various projects I contribute to."
             />
             <IconCard
               Icon={NLPIcon}
-              description="I design and develop computer vision modules and integrate them into the different projects I contribute to."
+              description="I create and implement natural language processing modules, tailoring them to fit the specific needs of the projects I contribute to."
             />
           </div>
         </div>
