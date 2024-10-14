@@ -1,6 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 
-export default function IconCard({ Icon, description }) {
+export function IconCard({ Icon, description }) {
   return (
     <div className="grow-0 shrink-0 basis-3/12 max-w-3/12 px-4 lg:basis-1/3 md:basis-1/2 sm:basis-full">
       <Icon className="mx-auto" />
@@ -10,3 +10,5 @@ export default function IconCard({ Icon, description }) {
     </div>
   );
 }
+
+export default memo(IconCard);
