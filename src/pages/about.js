@@ -19,6 +19,7 @@ export default function About() {
                   src={profilepicture}
                   alt="Profile picture of Hani Yousfi"
                   className="place-items-end float-right w-full h-full object-cover border-hidden rounded-full"
+                  priority
                 />
               </div>
               <div className="grow-0 shrink-0 basis-5/12 px-4 box-border lg:basis-1/2 md:pt-16">
