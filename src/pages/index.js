@@ -46,6 +46,7 @@ export default function Home() {
                 src={profilepicture}
                 alt="Profile picture of Hani Yousfi"
                 className="place-items-end float-right w-full h-full object-cover border-hidden rounded-full"
+                priority
               />
             </div>
           </div>
