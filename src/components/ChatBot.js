@@ -89,7 +89,15 @@ export function ChatInterface({
             ) : (
               msg.message_text
             )}
-            <div className="text-xs text-gray-500">{msg.timestamp}</div>
+            <div
+              className={`text-xs ${
+                msg.message_by === "human"
+                  ? "text-indigo-200"
+                  : "text-gray-500"
+            }`}
+            >
+            {msg.timestamp}
+            </div>
           </div>
         ))}
 
