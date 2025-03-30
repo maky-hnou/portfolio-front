@@ -144,6 +144,12 @@ theme: {
     npm run build && npm start
     ```
 ---
+
+## CI/CD Pipeline
+The project includes GitHub Actions for automated builds and deployments:  
+**Workflow File:** `.github/workflows/node.js.yml`  
+---
+
 ## Customization Guide
 To update content:
 
