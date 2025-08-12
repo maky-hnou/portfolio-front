@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { BalloonAnimation, Message, FireworksLayer, BackgroundMusic, CustomGiftBoxCakeReveal } from '../components/Birthday';
 
 export default function Birthday() {
-  const personName = 'HANI';
+  const personName = 'MAISSA';
   const giftBoxDelay = 2; // seconds
 
   const [isMobile, setIsMobile] = useState(false);
@@ -35,7 +35,7 @@ export default function Birthday() {
   return (
     <>
       <Head>
-        <title>Happy Birthday! - Hani</title>
+        <title>Happy Birthday! - Maissa</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Birthday celebration page" />
       </Head>
