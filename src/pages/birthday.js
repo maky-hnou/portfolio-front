@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BalloonAnimation, Message, FireworksLayer, BackgroundMusic, CustomGiftBoxCakeReveal } from '../components/Birthday';
+import { BalloonRow, Message, FireworksLayer, BackgroundMusic, CustomGiftBoxCakeReveal } from '../components/Birthday';
 
 export default function Birthday() {
   const personName = 'MAISSA';
@@ -45,10 +45,7 @@ export default function Birthday() {
           <Message name={personName} />
 
           <div className="mb-16">
-            <BalloonAnimation
-              name={personName}
-              onBalloonsReachFinalPosition={handleBalloonsComplete}
-            />
+            <BalloonRow name="MAISSA" onReady={() => console.log('all balloons in place')} />
           </div>
 
           {/* <AnimatePresence>
@@ -77,7 +74,7 @@ export default function Birthday() {
 //          </div> */}
         </div>
 
-        {/* <FireworksLayer isMobile={isMobile} /> */}
+        <FireworksLayer isMobile={isMobile} />
 
         {/* <BackgroundMusic
 //          candlesBlownOut={candlesBlownOut}
