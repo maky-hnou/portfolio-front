@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Typewriter from 'typewriter-effect';
 
 export default function FloatingMessage() {
   const [showFlowers, setShowFlowers] = useState(true);
@@ -90,24 +91,28 @@ export default function FloatingMessage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: 'easeOut' }}
-              className="absolute inset-0 flex items-center justify-center"
+              className="inset-0 flex items-center justify-center"
             >
-              <motion.p
-                animate={{ 
-                  opacity: [0.8, 1, 0.8]
-                }}
-                transition={{ 
-                  duration: 4, 
-                  repeat: Infinity, 
-                  ease: 'easeInOut'
-                }}
-                className="text-center text-lg md:text-xl text-gray-600 font-medium italic max-w-md leading-relaxed"
-              >
-                May your day bloom as brightly as these two flowers—petal by petal, joy unfolding from sunrise to
-                starlight—so every hour feels like a gentle celebration, every laugh adds another splash of color to
-                the bouquet of memories you’re gathering, and every wish you make tonight drifts upward like the
-                sweetest perfume, carrying all our happiest birthday hopes straight to you.
-              </motion.p>
+              <Typewriter
+        onInit={(typewriter) => {
+          typewriter
+            .typeString(
+              'May your day bloom as brightly as these two flowers—petal by petal, joy unfolding from sunrise to starlight—so every hour feels like a gentle celebration, every laugh adds another splash of color to the bouquet of memories you’re gathering, and every wish you make tonight drifts upward like the sweetest perfume, carrying all our happiest birthday hopes straight to you.'
+            )
+            .callFunction(() => {
+              // hide the caret when finished
+              document.querySelector('.Typewriter__cursor')?.remove?.();
+            })
+            .start();
+        }}
+        options={{
+          delay: 70,            // character speed
+          cursor: '',
+          wrapperClassName:
+            'block text-center text-lg md:text-xl text-gray-600 font-medium italic max-w-md leading-relaxed',
+          cursorClassName: 'text-gray-600 font-medium'
+        }}
+      />
             </motion.div>
           )}
         </AnimatePresence>
