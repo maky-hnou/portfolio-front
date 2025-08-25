@@ -1,4 +1,3 @@
-// FloatingMessage.jsx
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import Image from 'next/image';
@@ -37,7 +36,7 @@ export default function FloatingMessage() {
   };
 
   return (
-    <div className="flex justify-center items-center py-24 px-4 mt-16">
+    <div className="flex justify-center items-center py-24 px-4 mt-8">
       <div className="relative h-32 flex items-center justify-center">
         <AnimatePresence>
           {showFlowers && (

@@ -39,7 +39,7 @@ export default function Birthday() {
           <Message name={personName} />
 
           <div className="mb-16">
-            <BalloonRow name="MAISSA" onReady={handleBalloonsComplete} />
+            <BalloonRow name={personName} onReady={handleBalloonsComplete} />
           </div>
           
           {showVideo && (
