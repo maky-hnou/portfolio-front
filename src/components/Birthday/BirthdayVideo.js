@@ -1,5 +1,3 @@
-// components/BirthdayVideo.jsx
-
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import ConfettiExplosion from 'react-confetti-explosion';

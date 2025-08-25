@@ -1,5 +1,3 @@
-// components/VideoPlaceholder.jsx
-
 import { motion } from 'framer-motion';
 
 export default function VideoPlaceholder({ onClick }) {
