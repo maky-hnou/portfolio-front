@@ -15,6 +15,16 @@ export const balloonFilters = [
   "sepia(100%) saturate(1100%) hue-rotate(60deg)  brightness(1.3)",
 ];
 
+/* Fisher-Yates shuffle helper */
+const shuffle = (arr) => {
+  const out = [...arr];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+};
+
 export const buildBalloons = (name) => {
   const vw = window.innerWidth;
   const letters = name.split('');
@@ -32,11 +42,14 @@ export const buildBalloons = (name) => {
   const shuffledIndices = [...Array(ordered.length).keys()]
     .sort(() => Math.random() - 0.5);
 
+  /* 3. shuffle the colors once per call */
+  const shuffledColors = shuffle(balloonFilters);
+
   return shuffledIndices.map((startIdx, i) => ({
     ...ordered[startIdx],
     startX: Math.random() * 80 + 10,
     speed: 1.5 + Math.random() * 2.5,
-    filter: balloonFilters[i % balloonFilters.length],
+    filter: shuffledColors[i % shuffledColors.length], // <- always shuffled
     finalIndex: startIdx, // the already-ordered index
     spacing,
   }));

@@ -1,21 +1,39 @@
+// FloatingMessage.jsx
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Typewriter from 'typewriter-effect';
+
+const FLOWERS = [
+  {
+    src: '/media/white_tulip.png',
+    alt: 'White tulip',
+    yOffset: -8,
+    duration: 3,
+    delay: 0,
+  },
+  {
+    src: '/media/red_rose.png',
+    alt: 'Red rose',
+    yOffset: -6,
+    duration: 3.5,
+    delay: 0.5,
+  },
+];
+
+const MESSAGE = `May your day bloom as brightly as these two flowers—petal by petal, joy unfolding from sunrise to starlight—so every hour feels like a gentle celebration, every laugh adds another splash of color to the bouquet of memories you’re gathering, and every wish you make tonight drifts upward like the sweetest perfume, carrying all my happiest birthday hopes straight to you.`;
 
 export default function FloatingMessage() {
   const [showFlowers, setShowFlowers] = useState(true);
   const [showMessage, setShowMessage] = useState(false);
-  const [flowersClicked, setFlowersClicked] = useState(false);
 
   const handleFlowerClick = () => {
-    if (!flowersClicked) {
-      setFlowersClicked(true);
-      setShowFlowers(false);
-      setTimeout(() => {
-        setShowMessage(true);
-      }, 800); // Wait for flower fade out
-    }
+    setShowFlowers(false);
+    setTimeout(() => setShowMessage(true), 800);
+  };
+
+  const hideCaret = () => {
+    document.querySelector('.Typewriter__cursor')?.remove?.();
   };
 
   return (
@@ -30,57 +48,33 @@ export default function FloatingMessage() {
               transition={{ duration: 0.8, ease: 'easeOut' }}
               className="flex items-center space-x-6"
             >
-              {/* White tulip PNG with floating animation */}
-              <motion.div
-                animate={{ 
-                  y: [0, -8, 0],
-                  rotate: [0, 2, -2, 0]
-                }}
-                transition={{ 
-                  duration: 3, 
-                  repeat: Infinity, 
-                  ease: 'easeInOut',
-                  delay: 0
-                }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleFlowerClick}
-                className="cursor-pointer select-none hover:drop-shadow-lg transition-all duration-300"
-              >
-                <Image
-                  src="/media/white_tulip.png"
-                  alt="White tulip"
-                  width={80}
-                  height={80}
-                  className="md:w-24 md:h-24"
-                />
-              </motion.div>
-              
-              {/* Red rose PNG with floating animation */}
-              <motion.div
-                animate={{ 
-                  y: [0, -6, 0],
-                  rotate: [0, -2, 2, 0]
-                }}
-                transition={{ 
-                  duration: 3.5, 
-                  repeat: Infinity, 
-                  ease: 'easeInOut',
-                  delay: 0.5
-                }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleFlowerClick}
-                className="cursor-pointer select-none hover:drop-shadow-lg transition-all duration-300"
-              >
-                <Image
-                  src="/media/red_rose.png"
-                  alt="Red rose"
-                  width={80}
-                  height={80}
-                  className="md:w-24 md:h-24"
-                />
-              </motion.div>
+              {FLOWERS.map((flower) => (
+                <motion.div
+                  key={flower.alt}
+                  animate={{
+                    y: [0, flower.yOffset, 0],
+                    rotate: [0, 2, -2, 0],
+                  }}
+                  transition={{
+                    duration: flower.duration,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: flower.delay,
+                  }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleFlowerClick}
+                  className="cursor-pointer select-none hover:drop-shadow-lg transition-all duration-300"
+                >
+                  <Image
+                    src={flower.src}
+                    alt={flower.alt}
+                    width={80}
+                    height={80}
+                    className="md:w-24 md:h-24"
+                  />
+                </motion.div>
+              ))}
             </motion.div>
           )}
         </AnimatePresence>
@@ -94,25 +88,17 @@ export default function FloatingMessage() {
               className="inset-0 flex items-center justify-center"
             >
               <Typewriter
-        onInit={(typewriter) => {
-          typewriter
-            .typeString(
-              'May your day bloom as brightly as these two flowers—petal by petal, joy unfolding from sunrise to starlight—so every hour feels like a gentle celebration, every laugh adds another splash of color to the bouquet of memories you’re gathering, and every wish you make tonight drifts upward like the sweetest perfume, carrying all our happiest birthday hopes straight to you.'
-            )
-            .callFunction(() => {
-              // hide the caret when finished
-              document.querySelector('.Typewriter__cursor')?.remove?.();
-            })
-            .start();
-        }}
-        options={{
-          delay: 70,            // character speed
-          cursor: '',
-          wrapperClassName:
-            'block text-center text-lg md:text-xl text-gray-600 font-medium italic max-w-md leading-relaxed',
-          cursorClassName: 'text-gray-600 font-medium'
-        }}
-      />
+                onInit={(tw) => {
+                  tw.typeString(MESSAGE).callFunction(hideCaret).start();
+                }}
+                options={{
+                  delay: 70,
+                  cursor: '',
+                  wrapperClassName:
+                    'block text-center text-lg md:text-xl text-gray-600 font-medium italic max-w-md leading-relaxed',
+                  cursorClassName: 'text-gray-600 font-medium',
+                }}
+              />
             </motion.div>
           )}
         </AnimatePresence>
