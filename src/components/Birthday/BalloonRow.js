@@ -1,4 +1,3 @@
-// components/Birthoon/BalloonRow.jsx
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { buildBalloons } from '../../utils/balloonHelpers';
@@ -6,6 +5,7 @@ import BalloonShape from './BalloonShape';
 
 export default function BalloonRow({ name = 'BIRTHDAY', onReady }) {
   const [items, setItems] = useState([]);
+  const [animationsCompleted, setAnimationsCompleted] = useState(0);
 
   useEffect(() => {
     const update = () => setItems(buildBalloons(name));
@@ -15,8 +15,14 @@ export default function BalloonRow({ name = 'BIRTHDAY', onReady }) {
   }, [name]);
 
   useEffect(() => {
-    if (items.length) onReady?.();
-  }, [items, onReady]);
+    if (animationsCompleted === items.length && items.length > 0) {
+      onReady?.();
+    }
+  }, [animationsCompleted, items.length, onReady]);
+
+  const handleAnimationComplete = () => {
+    setAnimationsCompleted(prev => prev + 1);
+  };
 
   if (!items.length) return null;
 
@@ -40,7 +46,7 @@ export default function BalloonRow({ name = 'BIRTHDAY', onReady }) {
               scale: 1,
             }}
             transition={{ duration: b.speed, ease: 'easeOut' }}
-            onAnimationComplete={onReady}
+            onAnimationComplete={handleAnimationComplete}
           >
             {/* eternal micro-float */}
             <motion.div

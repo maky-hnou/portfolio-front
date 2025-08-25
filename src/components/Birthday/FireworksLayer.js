@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { Fireworks } from 'fireworks-js';
 
-export default function FireworksLayer({ isMobile }) {
+export default function FireworksLayer({ isMobile, isActive = true }) {
   const canvasRef = useRef(null);
+  const fireworksRef = useRef(null);
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -51,7 +52,11 @@ export default function FireworksLayer({ isMobile }) {
     window.addEventListener('resize', resize);
 
     const fireworks = new Fireworks(canvas, getConfig());
-    fireworks.start();
+    fireworksRef.current = fireworks;
+    
+    if (isActive) {
+      fireworks.start();
+    }
 
     return () => {
       try {
@@ -60,6 +65,18 @@ export default function FireworksLayer({ isMobile }) {
       window.removeEventListener('resize', resize);
     };
   }, [isMobile]);
+
+  useEffect(() => {
+    if (fireworksRef.current) {
+      try {
+        if (isActive) {
+          fireworksRef.current.start();
+        } else {
+          fireworksRef.current.stop();
+        }
+      } catch {}
+    }
+  }, [isActive]);
 
   return (
     <canvas
