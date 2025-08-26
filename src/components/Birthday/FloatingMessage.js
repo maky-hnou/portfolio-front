@@ -70,7 +70,7 @@ export default function FloatingMessage() {
                     alt={flower.alt}
                     width={80}
                     height={80}
-                    className="md:w-24 md:h-24"
+                    className="md:w-24 h-auto"
                   />
                 </motion.div>
               ))}

@@ -34,7 +34,7 @@ export default function BirthdayVideo({ onVideoReady, delayInSeconds = 2, onPlac
   };
 
   return (
-    <div className="flex justify-center mt-12">
+    <div className="flex justify-center mt-12 md:mb-16">
       <div className="relative w-[600px] h-[450px] lg:w-[500px] lg:h-[375px] md:w-96 md:h-72 sm:w-80 sm:h-60">
         {showConfetti && (
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
