@@ -1,7 +1,6 @@
 import Head from "next/head";
 import "../styles/global.css";
 import { Poppins, Montserrat } from "next/font/google";
-import { useRouter } from "next/router";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import ChatBot from "../components/ChatBot";
@@ -19,9 +18,6 @@ const montserrat = Montserrat({
 });
 
 export default function App({ Component, pageProps }) {
-  const router = useRouter();
-  const isBirthdayPage = router.pathname === "/birthday";
-
   return (
     <>
       <Head>
@@ -31,10 +27,10 @@ export default function App({ Component, pageProps }) {
       <main
         className={`${poppins.variable} font-poppins ${montserrat.variable} font-montserrat`}
       >
-        {!isBirthdayPage && <NavBar />}
+        <NavBar />
         <Component {...pageProps} />
-        {!isBirthdayPage && <Footer />}
-        {!isBirthdayPage && <ChatBot />}
+        <Footer />
+        <ChatBot />
       </main>
     </>
   );
